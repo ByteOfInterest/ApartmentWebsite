@@ -583,7 +583,7 @@ iframe {
 
 
 .footer__container {
-    background-color: #998577;
+    background-color: #C9BAAB;
     justify-content: space-between;
     margin-top: 120px;
 }
@@ -604,7 +604,7 @@ iframe {
     font-size: 16px;
     line-height: 28px;
 
-    color: #D9DBDE;
+    color: #ffffff;
 }
 
 .footer__catchword:last-of-type {
@@ -650,7 +650,7 @@ iframe {
 .rightside__p {
     text-decoration: none;
     display: inline-block;
-    color: #D9DBDE;
+    color: #ffffff;
 
     font-style: normal;
     font-weight: 400;
@@ -662,6 +662,43 @@ iframe {
 
 .p__margin-b {
     margin-bottom: 0;
+}
+
+.social__media-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.custom-hr {
+    border: none; /* Remove default border */
+    height: 100px; /* Adjust the thickness */
+    background-color: #C9BAAB; /* Set the color */
+    margin: 0; /* Optional: Adjust margin if needed */
+    position: relative; /* Ensure the line is positioned relative to the container */
+    z-index: 1; /* Set a lower z-index for the line */
+
+}
+
+.line-container {
+    position: relative; /* Ensure the container is positioned relative */
+}
+
+.square {
+    width: 320px; /* Adjust the size as needed */
+    height: 100px; /* Adjust the size as needed */
+    background-color: #6A0708; /* Set the background color */
+    color: #F5F4F2; /* Set the font color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute; /* Position the square absolutely */
+    top: 50px; /* Adjust to position half above the line */
+    left: 300px; /* Adjust to position towards the left */
+    font-family: 'Montserrat', sans-serif; /* Set the font family */
+    font-size: 35px; /* Adjust the font size as needed */
+    text-align: center;
+    font-weight: bold; /* Make the text bold */
+    z-index: 2; /* Set a higher z-index for the square */
 }
 
 
