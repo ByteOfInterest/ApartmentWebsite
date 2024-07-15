@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery page</title>
+    <title>Gallery</title>
+    <link rel="icon" href="/img/tabLogo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,14 +13,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     
     <header class="header">
         <div class="container header-container">
             <div class="header__logo">
-                <a href="../index.html"><img src="https://place-hold.it/60x40" alt="logo"></a>
+                <a href="#"><img src="../img/Logo.png" class="logo_image-header" alt="logo"></a>
             </div>
             <div class="header__list" id="my-header__list">
                 <nav class="header__nav">
@@ -30,10 +31,21 @@
 
                     <a class="header__link  header_link_main" href="#">Gallery</a>
 
-                    <a class="header__link" href="../prices/index.html">Prices</a>
+                    <a class="header__link" href="../rozsa_apartman_2/">Rózsa Apartman 2</a>
 
                     <a class="header__link" href="../ContactUS/index.html">Contact Us</a>
 
+                    <div class="language_dropdown">
+                        <button class="language_button"><i class="fa-solid fa-earth-americas fa-xl"></i></button>
+                        <div class="language_choice">
+                            <a href="./MagyarLanguage/index.html">Magyar</a>
+                            <hr class="language_line">
+                            <a href="#">Español</a>
+                            <hr class="language_line">
+                            <a href="#">Deutsch</a>
+                        </div>
+                    </div>
+                    
                     <a href="#" class="header__button-link button">
                         Booking
                     </a>
