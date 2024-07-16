@@ -203,7 +203,7 @@ body {
     letter-spacing: -0.01em;
 
     color: #192252;
-    margin-right: 50px;
+    margin-right: 100px;
 }
 
 .general__p {
@@ -218,10 +218,23 @@ body {
     color: black;
 }
 
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    width: 100vw;  /* Full viewport width */
+    box-sizing: border-box;
+}
+
 .main-section__img {
     position: relative;
     z-index: -1;
-    margin-right: 24px;
+    margin-right: 0px;
+    width: 370px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    left: 450px; /* Move the image to the right by 20px */
+    top: 20px; /* Move the image down by 20px */
 }
 
 .main-section__img-center {
@@ -235,10 +248,24 @@ body {
     margin-right: 0;
 }
 
+
+
+
+
 /* First Section */
 
 .container__text-first {
-    margin-left: 126px;
+    margin-left: 500px;
+}
+
+.main-section__img2 {
+    position: relative;
+    z-index: -1;
+    margin-right: 0px;
+    width: 500px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    left: 150px; /* Move the image to the right by 20px */
+    top: 50px; /* Move the image down by 20px */
 }
 
 .section__h {
@@ -254,6 +281,8 @@ body {
 .section__p:last-of-type {
     margin-bottom: 32px;
 }
+
+
 
 /* Second Section */
 .second-section__container {
@@ -675,7 +704,7 @@ iframe {
     background-color: #C9BAAB; /* Set the color */
     margin: 0; /* Optional: Adjust margin if needed */
     position: relative; /* Ensure the line is positioned relative to the container */
-    z-index: 1; /* Set a lower z-index for the line */
+    z-index: -2; /* Set a lower z-index for the line */
 
 }
 
