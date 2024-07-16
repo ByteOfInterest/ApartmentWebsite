@@ -196,78 +196,68 @@ body {
     font-style: normal;
     font-weight: 600;
     line-height: 39px;
-    font-size: 35px;
-
+    font-size: 30px;
+    margin-top: 100px; /* Adjust the value as needed */
     color: #192252;
 }
 
 label {
-    font-style: normal;
-    font-weight: 400;
+
     font-size: 18px;
     line-height: 150%;
 
     color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
 }
 
 input {
-    width: 100%;
+    width: 70%;
     padding-top: 10px;
     padding-bottom: 12px;
     margin-top: 10px;
     margin-bottom: 12px;
     border: 2px solid gray;
     border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
 }
 
 textarea {
     width: 100%;
     border: 2px solid gray;
     border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
 }
 
-input[type=checkbox] {
-    position: relative;
-    cursor: pointer;
-    width: auto;
-}
-input[type=checkbox]:before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    top: 5px;
-    left: 0;
-    border: 2px solid #555555;
-    border-radius: 3px;
-    background-color: white;
-}
-input[type=checkbox]:checked:after {
-    content: "";
-    display: block;
-    width: 5px;
-    height: 10px;
-    border: solid black;
-    border-width: 0 2px 2px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-    position: absolute;
-    top: 7px;
-    left: 6px;
+
+.submit-button {
+    background-color: #6A0708;
+    color: white; /* White text */
+    padding: 15px 20px; /* Padding */
+    border: none; /* Remove borders */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer/hand icon */
+    font-size: 20px; /* Increase font size */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    width: 120px; /* Fixed width to make it narrower */
+    display: block; /* Make it a block element */
+    margin: 20px auto; /* Center it and add margin-top */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
 }
 
-.checkbox-container {
-    display: flex;
+.submit-button:hover {
+    background-color: #4B0B0B; /* Darker green on hover */
 }
 
-input[type=checkbox] {
-    margin-bottom: 5px;
-}
-
-.checkbox-text {
-    margin-left: 10px;
+.form-background {
+    background-image: url('..img/bordo_back.png');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border-radius: 8px;
 }
 
 .social_media-container {
@@ -421,4 +411,6 @@ input[type=checkbox] {
     text-align: center;
     font-weight: bold; /* Make the text bold */
     z-index: 2; /* Set a higher z-index for the square */
+    margin-bottom: 100px; /* Adjust the value as needed */
+
 }
