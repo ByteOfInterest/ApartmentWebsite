@@ -186,8 +186,7 @@ body {
 
 /* Main section */
 .main-container {
-    display: flex;
-    justify-content: center;
+    display: block;
     align-items: start;
 }
 
@@ -234,22 +233,22 @@ textarea {
 
 .submit-button {
     background-color: #6A0708;
-    color: white; /* White text */
-    padding: 15px 20px; /* Padding */
-    border: none; /* Remove borders */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer/hand icon */
-    font-size: 20px; /* Increase font size */
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-    width: 120px; /* Fixed width to make it narrower */
-    display: block; /* Make it a block element */
-    margin: 20px auto; /* Center it and add margin-top */
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+    width: 120px;
+    display: block;
+    margin: 20px auto;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
 }
 
 .submit-button:hover {
-    background-color: #4B0B0B; /* Darker green on hover */
+    background-color: #4B0B0B;
 }
 
 .form-background {
