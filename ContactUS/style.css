@@ -252,7 +252,7 @@ textarea {
 }
 
 .form-background {
-    background-image: url('..img/bordo_back.png');
+    background-image: url('/Users/macbook/Desktop/apartment-website/img/bordo_back.png');
     background-size: cover;
     background-position: center;
     padding: 20px;
