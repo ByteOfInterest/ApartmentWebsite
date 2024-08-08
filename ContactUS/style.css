@@ -196,7 +196,6 @@ body {
     font-weight: 600;
     line-height: 39px;
     font-size: 30px;
-    margin-top: 100px; /* Adjust the value as needed */
     color: #192252;
 }
 
@@ -216,16 +215,14 @@ input {
     padding-bottom: 12px;
     margin-top: 10px;
     margin-bottom: 12px;
-    border: 2px solid gray;
-    border-radius: 10px;
+    border: 2px solid #6A0708;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
 }
 
 textarea {
     width: 100%;
-    border: 2px solid gray;
-    border-radius: 10px;
+    border: 2px solid #6A0708;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
 }
@@ -251,12 +248,35 @@ textarea {
     background-color: #4B0B0B;
 }
 
+.form__container {
+    display: block;
+    text-align: center;
+}
+
 .form-background {
     background-image: url('/Users/macbook/Desktop/apartment-website/img/bordo_back.png');
-    background-size: cover;
-    background-position: center;
-    padding: 20px;
+    background-repeat: repeat;
+    background-size: contain;
+    background-position: center center;
+    padding: 40px 20px 40px 20px;
     border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+form {
+    display: block;
+    text-align: left;
+    width: 600px;
+    background-color: white;
+    padding: 30px;
+}
+
+.input_form {
+    max-width: 600px;
+    padding: 10px 10px 10px 10px;
+    margin: 5px;
 }
 
 .social_media-container {
