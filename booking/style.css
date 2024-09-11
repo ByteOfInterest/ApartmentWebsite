@@ -216,29 +216,11 @@ h1 {
 }
 
 .booking-container {
-    display: flex;
-    justify-content: center;
     text-align: center;
     margin: 40px;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.left-booking_container {
-    display: block;
-    width: 50%;
-    height: 800px;
-}
-
-.left-booking_container .h1-booking {
-    margin-right: 150px;
-}
-
-.right-booking_container {
-    display: block;
-    width: 50%;
-    height: 800px;
 }
 
 label {
