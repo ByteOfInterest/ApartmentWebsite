@@ -81,25 +81,30 @@ function addressAutocomplete(containerElement, callback, options) {
     placeholder: "Enter an address here"
   });
 
-// Counter
-// JavaScript for incrementing and decrementing people count
-const increaseButton = document.getElementById('increase');
-const decreaseButton = document.getElementById('decrease');
-const peopleCountInput = document.getElementById('people-count');
-let peopleCount = 0;
+// Function to initialize counter
+function initializeCounter(increaseButtonId, decreaseButtonId, inputId) {
+  const increaseButton = document.getElementById(increaseButtonId);
+  const decreaseButton = document.getElementById(decreaseButtonId);
+  const peopleCountInput = document.getElementById(inputId);
+  let peopleCount = parseInt(peopleCountInput.value, 10);
 
-increaseButton.addEventListener('click', () => {
-    peopleCount++;
-    peopleCountInput.value = peopleCount;
-    decreaseButton.disabled = false;
-});
+  increaseButton.addEventListener('click', () => {
+      peopleCount++;
+      peopleCountInput.value = peopleCount;
+      decreaseButton.disabled = false;
+  });
 
-decreaseButton.addEventListener('click', () => {
-    if (peopleCount > 0) {
-        peopleCount--;
-        peopleCountInput.value = peopleCount;
-        if (peopleCount === 0) {
-            decreaseButton.disabled = true;
-        }
-    }
-});
+  decreaseButton.addEventListener('click', () => {
+      if (peopleCount > 0) {
+          peopleCount--;
+          peopleCountInput.value = peopleCount;
+          if (peopleCount === 0) {
+              decreaseButton.disabled = true;
+          }
+      }
+  });
+}
+
+// Initialize counters
+initializeCounter('adults-increase', 'adults-decrease', 'adults-count');
+initializeCounter('children-increase', 'children-decrease', 'children-count');

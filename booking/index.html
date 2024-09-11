@@ -84,19 +84,21 @@
                     <!-- Calendar -->
 
                     <p class="p-form">Number of guests</p>
-                    <label for="people-count">Adults:</label>
+
+                    <label for="adults-count">Adults:</label>
                     <div class="counter-container">
-                        <button id="decrease" class="count-button" disabled>-</button>
-                        <input type="text" id="people-count" value="0" readonly>
-                        <button id="increase">+</button>
+                        <button id="adults-decrease" class="count-button" disabled>-</button>
+                        <input type="text" id="adults-count" value="0">
+                        <button id="adults-increase" class="count-button">+</button>
                     </div>
 
-                    <label for="people-count">Children (under 18):</label>
+                    <label for="children-count">Children (under 18):</label>
                     <div class="counter-container">
-                        <button id="decrease" class="count-button">-</button>
-                        <input type="text" id="people-count" value="0" readonly>
-                        <button id="increase">+</button>
+                        <button id="children-decrease" class="count-button" disabled>-</button>
+                        <input type="text" id="children-count" value="0">
+                        <button id="children-increase" class="count-button">+</button>
                     </div>
+
 
                 </form>
             </div>
