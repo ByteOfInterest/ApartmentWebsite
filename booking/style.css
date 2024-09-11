@@ -68,6 +68,16 @@ body {
     width: 240px;
 }
 
+h1 {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 150%;
+    letter-spacing: -0.01em;
+    color: #6A0708;
+}
+
 /* Header */
 
 .header-container {
@@ -184,140 +194,120 @@ body {
     color: black;
 }
 
-/* Main section */
-.main-container {
-    display: block;
-    align-items: start;
+/* Main */
+.h1-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 30px;
 }
 
-.form-title {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 600;
-    line-height: 39px;
-    font-size: 30px;
-    color: #192252;
+.h1-booking {
+    font-size: 40px;
+}
+
+.h1-form:hover:after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 3px;
+    background-color: #6A0708;
+    margin: 20px auto;
+}
+
+.booking-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 40px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.left-booking_container {
+    display: block;
+    width: 50%;
+    height: 800px;
+}
+
+.left-booking_container .h1-booking {
+    margin-right: 150px;
+}
+
+.right-booking_container {
+    display: block;
+    width: 50%;
+    height: 800px;
 }
 
 label {
-
-    font-size: 18px;
-    line-height: 150%;
-
-    color: black;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
+    text-align: left;
 }
 
 input {
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    padding: 10px;
     width: 70%;
-    padding-top: 10px;
-    padding-bottom: 12px;
+    margin-bottom: 5px;
+}
+
+/* Autocomplete address container */
+.autocomplete-container {
+    margin-bottom: 20px;
+}
+  
+.input-container {
+    display: flex;
+}
+  
+.input-container input {
+    flex: 1;
+    outline: none;
+    
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    padding-right: 31px;
+    font-size: 16px;
+}
+
+/* + and - */
+.counter-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-top: 10px;
-    margin-bottom: 12px;
-    border: 2px solid #6A0708;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
 }
 
-textarea {
-    width: 100%;
-    border: 2px solid #6A0708;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-}
-
-
-.submit-button {
-    background-color: #6A0708;
-    color: white;
-    padding: 15px 20px;
-    border: none;
+.counter-container button {
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 20px;
-    transition: background-color 0.3s ease;
-    width: 120px;
-    display: block;
-    margin: 20px auto;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
 }
 
-.submit-button:hover {
-    background-color: #4B0B0B;
-}
-
-.form__container {
-    display: block;
+.counter-container input {
+    width: 50px;
     text-align: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
 }
 
-.form-background {
-    background-image: url('/Users/macbook/Desktop/apartment-website/img/bordo_back.png');
-    background-repeat: repeat;
-    background-size: contain;
-    background-position: center center;
-    padding: 40px 20px 40px 20px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    margin-top: 100px;
-}
-
-form {
-    display: block;
-    text-align: left;
-    width: 600px;
-    background-color: white;
-    padding: 30px;
-}
-
-.input_form {
-    max-width: 600px;
-    padding: 10px 10px 10px 10px;
-    margin: 5px;
-    border-radius: 10px;
-}
-
-.social_media-container {
-    display: block;
-    text-align: center;
-    margin-left: 100px;
-    margin-top: 150px;
-}
-
-.social_media-container > div {
-    margin-bottom: 40px;
-}
-
-.social__media {
-    text-decoration: none;
-    font-size: 38px;
-    color: #192252;
-}
-
-.social__media:not(:last-of-type) {
-    margin-right: 40px;
-}
-
-.main-contact-info {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 26px;
-    line-height: 30px;
-
-    color: #192252;
-}
-
-.main-contact-info:last-of-type {
-    margin-bottom: 36px;
+.count-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
 /* Footer */
 .footer {
     color: #fff;
 }
+
+
 
 .footer__container {
     background-color: #C9BAAB;
@@ -348,12 +338,12 @@ form {
     margin-bottom: 36px;
 }
 
-.social__media-footer {
+.social__media {
     text-decoration: none;
     color: #FFFFFF;
 }
 
-.social__media-footer:not(:last-of-type) {
+.social__media:not(:last-of-type) {
     margin-right: 24px;
 }
 
@@ -401,36 +391,24 @@ form {
     margin-bottom: 0;
 }
 
-.custom-hr {
-    border: none; /* Remove default border */
-    height: 100px; /* Adjust the thickness */
-    background-color: #C9BAAB; /* Set the color */
-    margin: 0; /* Optional: Adjust margin if needed */
-    position: relative; /* Ensure the line is positioned relative to the container */
-    z-index: 1; /* Set a lower z-index for the line */
-
+.social__media-icon {
+    width: 40px;
+    height: 40px;
 }
 
-.line-container {
-    position: relative; /* Ensure the container is positioned relative */
+.footer__bottom {
+    background-color: #C9BAAB;
+    padding: 10px 0;
 }
 
-.square {
-    width: 320px; /* Adjust the size as needed */
-    height: 100px; /* Adjust the size as needed */
-    background-color: #6A0708; /* Set the background color */
-    color: #F5F4F2; /* Set the font color */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute; /* Position the square absolutely */
-    top: 50px; /* Adjust to position half above the line */
-    left: 300px; /* Adjust to position towards the left */
-    font-family: 'Montserrat', sans-serif; /* Set the font family */
-    font-size: 35px; /* Adjust the font size as needed */
+.footer__bottom hr {
+    width: 80%; /* Adjust the width as needed */
+    margin: 0 auto;
+    border: none;
+    border-top: 1.5px solid #ffffff; /* Adjust the color as needed */
+}
+
+.footer__copyright {
     text-align: center;
-    font-weight: bold; /* Make the text bold */
-    z-index: 2; /* Set a higher z-index for the square */
-    margin-bottom: 100px; /* Adjust the value as needed */
-
+    padding: 10px 0;
 }

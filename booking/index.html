@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rózsa Apartman</title>
+    <link rel="icon" href="./img/tabLogo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:ital,wght@0,400;0,600;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+    <header class="header">
+        <div class="container header-container">
+            <div class="header__logo">
+                <a href="../index.html"><img src="../img/Logo.png" class="logo_image-header" alt="logo"></a>
+            </div>
+            <div class="header__list" id="my-header__list">
+                <nav class="header__nav">
+
+                    <a class="header__link" href="../index.html">About Us</a>
+
+                    <a class="header__link" href="../rooms/index.html">Rooms</a>
+
+                    <a class="header__link" href="../gallery/index.html">Gallery</a>
+
+                    <a class="header__link" href="../rozsa_apartman_2/">Rózsa Házikó***</a>
+
+                    <a class="header__link" href="../ContactUS/index.html">Contact Us</a>
+
+                    <div class="language_dropdown">
+                        <button class="language_button"><i class="fa-solid fa-earth-americas fa-xl"></i></button>
+                        <div class="language_choice">
+                            <a href="./MagyarLanguage/index.html">Magyar</a>
+                            <hr class="language_line">
+                            <a href="#">Español</a>
+                            <hr class="language_line">
+                            <a href="#">Deutsch</a>
+                        </div>
+                    </div>
+
+                    <a href="#" class="header__button-link button">
+                        Booking
+                    </a>
+
+                </nav>
+                <a href="javascript:void(0);" class="header__icon" onclick="myFunction()">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="h1-container">
+            <h1 class="h1-booking">Booking</h1>
+        </div>
+        <div class="booking-container">
+            <div class="left-booking_container">
+                <h1 class="h1-form">Room reservation</h1>
+                <form action="" method="post">
+
+                    <label for="fname">First name:</label>
+                    <input type="text" id="fname" name="fname" required><br>
+
+                    <label for="sname">Last name:</label>
+                    <input type="text" id="sname" name="sname" required><br>
+
+                    <div class="autocomplete-container" id="autocomplete-container"></div><br>
+
+                    <label for="tel">Phone:</label>
+                    <input type="tel" id="tel" name="tel" required><br>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br>
+
+                    <!-- Calendar -->
+
+                    <p class="p-form">Number of guests</p>
+                    <label for="people-count">Adults:</label>
+                    <div class="counter-container">
+                        <button id="decrease" class="count-button" disabled>-</button>
+                        <input type="text" id="people-count" value="0" readonly>
+                        <button id="increase">+</button>
+                    </div>
+
+                    <label for="people-count">Children (under 18):</label>
+                    <div class="counter-container">
+                        <button id="decrease" class="count-button">-</button>
+                        <input type="text" id="people-count" value="0" readonly>
+                        <button id="increase">+</button>
+                    </div>
+
+                </form>
+            </div>
+            <div class="right-booking_container">
+                <h1 class="h1-form">Request our booking</h1>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__leftside">
+                <img src="../img/Logo.png" class="logo_image-footer" alt="Logo">
+                <p class="footer__catchword">Alsóörs, Vörösmarty u. 19, 8226 Magyarország</p>
+                <p class="footer__catchword">Tel.: +36 20 509 1116</p>
+                <p class="footer__catchword">Email: rozsaapartman.alsoors@gmail.com</p>
+                <div>
+                    <a href="#" class="social__media-footer"><i class="fa-brands fa-facebook-f fa-2xl"></i></a>
+                    <a href="#" class="social__media-footer"><i class="fa-brands fa-airbnb fa-2xl"></i></a>
+                    <a href="#" class="social__media-footer"><img src="../img/booking_icon.png" class="social__media-booking" alt=""></a>
+                </div>
+            </div>
+            <div class="footer__rightside">
+                <div class="rightside__item-1">
+                    <h4 class="item__header">Parking is free</h4>
+                    <a href="#" class="rightside__p">Credit Cards: EC/MC, Visa</a> <br>
+                    <a href="#" class="rightside__p"> Prices are indicated in HUF, include VAT and unlimited usage of the hotel amenities.</a> <br>
+                    <a href="#" class="rightside__p">Local tax rate is 580 HUF/person (over 18 years of age)/night, which is not included in the room rate and is payable on site.</a> <br>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
