@@ -254,7 +254,7 @@ textarea {
 }
 
 .form-background {
-    background-image: url('/Users/macbook/Desktop/apartment-website/img/bordo_back.png');
+    background-image: url('../img/bordo_back.png');
     background-repeat: repeat;
     background-size: contain;
     background-position: center center;
