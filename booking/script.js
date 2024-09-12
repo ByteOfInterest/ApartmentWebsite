@@ -1,85 +1,187 @@
 function addressAutocomplete(containerElement, callback, options) {
-    const MIN_ADDRESS_LENGTH = 3;
-    const DEBOUNCE_DELAY = 300;
-    let currentTimeout = null;
-    let currentPromiseReject = null;
-  
-    // Create container for input element
-    const inputContainerElement = document.createElement("div");
-    inputContainerElement.setAttribute("class", "input-container");
-    containerElement.appendChild(inputContainerElement);
-  
-    // Create input element
-    const inputElement = document.createElement("input");
-    inputElement.setAttribute("type", "text");
-    inputElement.setAttribute("placeholder", options.placeholder);
-    inputContainerElement.appendChild(inputElement);
-  
-    /* Process a user input: */
-    inputElement.addEventListener("input", function (e) {
-      const currentValue = this.value;
-  
-      // Cancel previous timeout
-      if (currentTimeout) {
-        clearTimeout(currentTimeout);
-      }
-  
-      // Cancel previous request promise
-      if (currentPromiseReject) {
-        currentPromiseReject({
-          canceled: true
-        });
-      }
-  
-      // Skip empty or short address strings
-      if (!currentValue || currentValue.length < MIN_ADDRESS_LENGTH) {
-        return false;
-      }
-  
-      /* Call the Address Autocomplete API with a delay */
-      currentTimeout = setTimeout(() => {
-        currentTimeout = null;
-  
-        /* Create a new promise and send geocoding request */
-        const promise = new Promise((resolve, reject) => {
-          currentPromiseReject = reject;
-  
-          // Get an API Key from https://myprojects.geoapify.com
-          const apiKey = "17f4d8284a0842f78467c4e8075f65d7";
-  
-          var requestOptions = {
-            method: 'GET',
-          };
-          
-          fetch("https://api.geoapify.com/v1/geocode/autocomplete?text=Mosco&apiKey=17f4d8284a0842f78467c4e8075f65d7", requestOptions)
-            .then(response => response.json())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
-        });
-  
-        promise.then(
-          (data) => {
-            // Here we get address suggestions
-            console.log(data);
-            callback(data); // Trigger the callback
-          },
-          (err) => {
-            if (!err.canceled) {
-              console.log(err);
-            }
-          }
-        );
-      }, DEBOUNCE_DELAY);
-    });
-  }
-  
-  // Call the autocomplete function
-  addressAutocomplete(document.getElementById("autocomplete-container"), (data) => {
-    console.log("Selected option:");
-    console.log(data);
-  }, {
-    placeholder: "Enter an address here"
+  const MIN_ADDRESS_LENGTH = 3;
+  const DEBOUNCE_DELAY = 300;
+  let currentTimeout;
+  let currentPromiseReject;
+  let currentItems;
+  let focusedItemIndex = -1;
+
+  // Create container for input element
+  const inputContainerElement = document.createElement("div");
+  inputContainerElement.setAttribute("class", "input-container");
+  containerElement.appendChild(inputContainerElement);
+
+  // Create input element
+  const inputElement = document.createElement("input");
+  inputElement.setAttribute("type", "text");
+  inputElement.setAttribute("placeholder", options.placeholder);
+  inputContainerElement.appendChild(inputElement);
+
+  // Create clear button
+  const clearButton = document.createElement("div");
+  clearButton.classList.add("clear-button");
+  addIcon(clearButton);
+  inputContainerElement.appendChild(clearButton);
+
+  clearButton.addEventListener("click", (e) => {
+    e.stopPropagation();
+    inputElement.value = '';
+    callback(null);
+    clearButton.classList.remove("visible");
+    closeDropDownList();
   });
+
+  inputElement.addEventListener("input", function(e) {
+    const currentValue = this.value;
+
+    if (!currentValue) {
+      clearButton.classList.remove("visible");
+    } else {
+      clearButton.classList.add("visible");
+    }
+
+    // Cancel previous timeout
+    if (currentTimeout) {
+      clearTimeout(currentTimeout);
+    }
+
+    // Cancel previous request promise
+    if (currentPromiseReject) {
+      currentPromiseReject({
+        canceled: true
+      });
+    }
+
+    // Skip short address strings
+    if (!currentValue || currentValue.length < MIN_ADDRESS_LENGTH) {
+      closeDropDownList();
+      return false;
+    }
+
+    // Call the Address Autocomplete API with a delay
+    currentTimeout = setTimeout(() => {
+      currentTimeout = null;
+      const promise = new Promise((resolve, reject) => {
+        currentPromiseReject = reject;
+        const apiKey = "17f4d8284a0842f78467c4e8075f65d7";
+        const url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(currentValue)}&format=json&limit=5&apiKey=${apiKey}`;
+
+        fetch(url)
+          .then(response => {
+            currentPromiseReject = null;
+            if (response.ok) {
+              response.json().then(data => resolve(data));
+            } else {
+              response.json().then(data => reject(data));
+            }
+          });
+      });
+
+      promise.then((data) => {
+        currentItems = data.results;
+        closeDropDownList();
+
+        // Create dropdown list
+        const autocompleteItemsElement = document.createElement("div");
+        autocompleteItemsElement.setAttribute("class", "autocomplete-items");
+        inputContainerElement.appendChild(autocompleteItemsElement);
+
+        data.results.forEach((result, index) => {
+          const itemElement = document.createElement("div");
+          itemElement.innerHTML = result.formatted;
+          autocompleteItemsElement.appendChild(itemElement);
+
+          itemElement.addEventListener("click", function(e) {
+            inputElement.value = currentItems[index].formatted;
+            callback(currentItems[index]);
+            closeDropDownList();
+          });
+        });
+      }, (err) => {
+        if (!err.canceled) {
+          console.log(err);
+        }
+      });
+    }, DEBOUNCE_DELAY);
+  });
+
+  // Handle keyboard navigation
+  inputElement.addEventListener("keydown", function(e) {
+    const autocompleteItemsElement = containerElement.querySelector(".autocomplete-items");
+    if (autocompleteItemsElement) {
+      const itemElements = autocompleteItemsElement.getElementsByTagName("div");
+      if (e.keyCode == 40) { // Down arrow
+        e.preventDefault();
+        focusedItemIndex = focusedItemIndex !== itemElements.length - 1 ? focusedItemIndex + 1 : 0;
+        setActive(itemElements, focusedItemIndex);
+      } else if (e.keyCode == 38) { // Up arrow
+        e.preventDefault();
+        focusedItemIndex = focusedItemIndex !== 0 ? focusedItemIndex - 1 : itemElements.length - 1;
+        setActive(itemElements, focusedItemIndex);
+      } else if (e.keyCode == 13) { // Enter key
+        e.preventDefault();
+        if (focusedItemIndex > -1) {
+          closeDropDownList();
+        }
+      }
+    } else if (e.keyCode == 40) { // Reopen dropdown on down arrow
+      const event = document.createEvent('Event');
+      event.initEvent('input', true, true);
+      inputElement.dispatchEvent(event);
+    }
+  });
+
+  function setActive(items, index) {
+    if (!items || !items.length) return false;
+
+    for (let i = 0; i < items.length; i++) {
+      items[i].classList.remove("autocomplete-active");
+    }
+
+    items[index].classList.add("autocomplete-active");
+    inputElement.value = currentItems[index].formatted;
+    callback(currentItems[index]);
+  }
+
+  function closeDropDownList() {
+    const autocompleteItemsElement = inputContainerElement.querySelector(".autocomplete-items");
+    if (autocompleteItemsElement) {
+      inputContainerElement.removeChild(autocompleteItemsElement);
+    }
+    focusedItemIndex = -1;
+  }
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", function(e) {
+    if (e.target !== inputElement) {
+      closeDropDownList();
+    } else if (!containerElement.querySelector(".autocomplete-items")) {
+      const event = document.createEvent('Event');
+      event.initEvent('input', true, true);
+      inputElement.dispatchEvent(event);
+    }
+  });
+
+  function addIcon(buttonElement) {
+    const svgElement = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
+    svgElement.setAttribute('viewBox', "0 0 24 24");
+    svgElement.setAttribute('height', "24");
+
+    const iconElement = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+    iconElement.setAttribute("d", "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z");
+    iconElement.setAttribute('fill', 'currentColor');
+    svgElement.appendChild(iconElement);
+    buttonElement.appendChild(svgElement);
+  }
+}
+
+// Initialize the autocomplete
+addressAutocomplete(document.getElementById("autocomplete-container"), (data) => {
+  console.log("Selected option: ", data);
+}, {
+  placeholder: "Enter an address here"
+});
+
 
 // Function to initialize counter with a limit
 function initializeCounter(increaseButtonId, decreaseButtonId, inputId, maxCount) {
