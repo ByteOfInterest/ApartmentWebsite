@@ -245,6 +245,11 @@ input[type="checkbox"] {
     margin-bottom: 10px;
 }
 
+.payment-form_container {
+    margin-top: 17px;
+    margin-bottom: 20px;
+}
+
 /* Autocomplete address container */
 .autocomplete-container {
     margin-bottom: 20px;
