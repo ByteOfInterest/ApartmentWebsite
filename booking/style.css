@@ -368,7 +368,7 @@ input[type="checkbox"] {
     padding: 20px;
 }
 
-.calendar-body .calendar-weekdays {
+.calendar-body ul {
     list-style: none;
     flex-wrap: wrap;
     display: flex;
