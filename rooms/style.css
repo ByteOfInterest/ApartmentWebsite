@@ -227,16 +227,16 @@ body {
     padding: 60px 0;
 }
 
-.container {
+.main-container {
     display: grid;
-    grid-template-columns: 1fr; /* One column layout */
-    grid-gap: 40px; /* Spacing between room containers */
+    grid-template-columns: 1fr;
+    grid-gap: 40px;
 }
 
 .room-container {
     display: grid;
-    grid-template-columns: 300px 1fr; /* Two columns: image and info */
-    gap: 20px; /* Space between image and text */
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
     border: 1px solid #C9BAAB;
     padding: 20px;
     border-radius: 10px;
