@@ -12,7 +12,7 @@ body {
 .container {
     margin: 0 auto;
     min-width: 1440px;
-    padding: 10px 80px 70px 80px;
+    padding: 10px 80px 10px 80px;
     display: flex;
     align-items: center;
 }
@@ -405,7 +405,7 @@ body {
 /* Section Choose */
 .container-choose {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .button-white {
@@ -437,7 +437,7 @@ body {
 
 .about__item-container {
     max-width: 750px;
-    margin: 0 auto;
+    margin-right: 70px;
 }
 
 .about__items > div {
