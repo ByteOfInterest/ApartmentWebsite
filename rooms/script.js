@@ -4,23 +4,59 @@ const closeBtn = document.querySelector(".close");
 
 // Room data for modal content
 const roomData = {
-    "luxus-szoba": {
-        title: "Luxus Szoba",
-        description: "A Luxus Szoba lenyűgöző king-size ággyal, privát erkéllyel és pazar kilátással rendelkezik. Ingyenes Wi-Fi, síkképernyős TV és szobaszerviz is elérhető.",
+    "studio-kozoskonyha-4": {
+        title: "Stúdiószoba közös konyhával - Nr.4",
+        description: "Emeleti szoba közös, felszerelt konyhával, TV-vel, hűtővel, tusolóval, WC-vel, terasszal és légkondicionálóval.",
         img1: "https://place-hold.it/300x200",
-        img2: "https://place-hold.it/300x200",
+        img2: "https://place-hold.it/300x200"
     },
-    "standard-szoba": {
-        title: "Standard Szoba",
-        description: "A Standard Szoba kényelmes szállást biztosít, franciaággyal, privát fürdőszobával és ingyenes reggelivel. Ideális egyéni utazóknak vagy pároknak.",
+    "studio-kozoskonyha-5": {
+        title: "Stúdiószoba közös konyhával - Nr.5",
+        description: "Emeleti szoba közös konyhával, TV-vel, hűtővel, tusolóval, WC-vel, légkondicionálóval, terasszal és szúnyoghálóval.",
         img1: "https://place-hold.it/300x200",
-        img2: "https://place-hold.it/300x200",
+        img2: "https://place-hold.it/300x200"
     },
-    "csalad-szoba": {
-        title: "Családi Lakosztály",
-        description: "A Családi Lakosztály tökéletes választás családok számára. Két hálószobával, nappalival és teljesen felszerelt konyhával várja vendégeit. Ideális hosszabb tartózkodásra.",
+    "studio-sajatkonyha-2": {
+        title: "Stúdiószoba saját konyhával - Nr.2",
+        description: "Földszinti szoba felszerelt konyhával, TV-vel, hűtővel, tusolóval, WC-vel, terasz résszel és szúnyoghálóval.",
         img1: "https://place-hold.it/300x200",
-        img2: "https://place-hold.it/300x200",
+        img2: "https://place-hold.it/300x200"
+    },
+    "studio-sajatkonyha-3": {
+        title: "Stúdiószoba saját konyhával - Nr.3",
+        description: "Emeleti szoba felszerelt minikonyhával, TV-vel, hűtővel, tusolóval, WC-vel, terasszal, légkondicionálóval és szúnyoghálóval.",
+        img1: "https://place-hold.it/300x200",
+        img2: "https://place-hold.it/300x200"
+    },
+    "apartman-15-emelet": {
+        title: "1,5 szobás apartman - Emeleti",
+        description: "Emeleti, légkondicionált apartman franciaággyal, kanapéval, hálófülkével, teljesen felszerelt konyhával, terasszal és szúnyoghálóval.",
+        img1: "https://place-hold.it/300x200",
+        img2: "https://place-hold.it/300x200"
+    },
+    "apartman-15-foldszint": {
+        title: "1,5 szobás apartman - Földszinti",
+        description: "Földszinti, nagy hálószoba franciaággyal, nappali étkezővel, felszerelt konyhával, fürdőszobával, terasszal, TV-vel, redőnnyel és szúnyoghálóval.",
+        img1: "https://place-hold.it/300x200",
+        img2: "https://place-hold.it/300x200"
+    },
+    "apartman-2-app2": {
+        title: "2 szobás apartman - App.2",
+        description: "Emeleti apartman 2 hálószobával, 2 TV-vel, felszerelt konyhával, étkezővel, fürdőszobával, terasszal, szúnyoghálóval és redőnnyel.",
+        img1: "https://place-hold.it/300x200",
+        img2: "https://place-hold.it/300x200"
+    },
+    "apartman-2-app3": {
+        title: "2 szobás apartman - App.3",
+        description: "Emeleti apartman 2 hálószobával, 2 TV-vel, felszerelt konyhával, étkezővel, fürdőszobával, terasszal és szúnyoghálóval.",
+        img1: "https://place-hold.it/300x200",
+        img2: "https://place-hold.it/300x200"
+    },
+    "studio-apartman": {
+        title: "Stúdió apartman",
+        description: "Emeleti stúdió hálószobával, nappalival (kihúzható kanapéval), felszerelt konyhával, tusolóval, WC-vel, terasszal és szúnyoghálóval.",
+        img1: "https://place-hold.it/300x200",
+        img2: "https://place-hold.it/300x200"
     }
 };
 
