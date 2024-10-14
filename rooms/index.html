@@ -26,9 +26,9 @@
             <div class="header__list" id="my-header__list">
                 <nav class="header__nav">
 
-                    <a class="header__link header_link_main" href="../index.html">About Us</a>
+                    <a class="header__link" href="../index.html">About Us</a>
 
-                    <a class="header__link" href="../rooms/index.html">Rooms</a>
+                    <a class="header__link header_link_main" href="#">Rooms</a>
 
                     <a class="header__link" href="../gallery/index.html">Gallery</a>
 
@@ -64,52 +64,66 @@
 
     <section class="rooms-section">
         <div class="main-container">
-            <div class="room-container">
+            <div class="room-container" data-room="luxus-szoba">
                 <div class="room-image">
-                    <img src="https://place-hold.it/300x200" alt="Room Image 1">
+                    <img src="https://place-hold.it/300x200" alt="Szoba Kép 1">
                 </div>
                 <div class="room-info">
-                    <h3>Deluxe Room</h3>
-                    <p>Spacious room with a king-sized bed, air conditioning, and a private balcony with a stunning view.</p>
+                    <h3>Luxus Szoba</h3>
+                    <p>Tágas szoba king-size ággyal, légkondicionálóval és privát erkéllyel, lenyűgöző kilátással.</p>
                     <div class="room-features">
-                        <i class="fa fa-bed" aria-hidden="true"></i> King Bed
-                        <i class="fa fa-wifi" aria-hidden="true"></i> Free WiFi
-                        <i class="fa fa-snowflake-o" aria-hidden="true"></i> Air Conditioning
+                        <i class="fa fa-bed" aria-hidden="true"></i> King-size ágy
+                        <i class="fa fa-wifi" aria-hidden="true"></i> Ingyenes WiFi
+                        <i class="fa fa-snowflake-o" aria-hidden="true"></i> Légkondicionáló
                     </div>
                 </div>
             </div>
     
-            <div class="room-container">
+            <div class="room-container" data-room="standard-szoba">
                 <div class="room-image">
-                    <img src="https://place-hold.it/300x200" alt="Room Image 2">
+                    <img src="https://place-hold.it/300x200" alt="Szoba Kép 2">
                 </div>
                 <div class="room-info">
-                    <h3>Standard Room</h3>
-                    <p>Cozy room with a double bed, private bathroom, and complimentary breakfast included.</p>
+                    <h3>Standard Szoba</h3>
+                    <p>Kényelmes szoba franciaággyal, saját fürdőszobával és ingyenes reggelivel.</p>
                     <div class="room-features">
-                        <i class="fa fa-bed" aria-hidden="true"></i> Double Bed
-                        <i class="fa fa-coffee" aria-hidden="true"></i> Breakfast Included
-                        <i class="fa fa-bath" aria-hidden="true"></i> Private Bathroom
+                        <i class="fa fa-bed" aria-hidden="true"></i> Franciaágy
+                        <i class="fa fa-coffee" aria-hidden="true"></i> Ingyenes Reggeli
+                        <i class="fa fa-bath" aria-hidden="true"></i> Privát Fürdőszoba
                     </div>
                 </div>
             </div>
     
-            <div class="room-container">
+            <div class="room-container" data-room="csalad-szoba">
                 <div class="room-image">
-                    <img src="https://place-hold.it/300x200" alt="Room Image 3">
+                    <img src="https://place-hold.it/300x200" alt="Szoba Kép 3">
                 </div>
                 <div class="room-info">
-                    <h3>Family Suite</h3>
-                    <p>Perfect for families, with two bedrooms, a living area, and access to a kitchenette.</p>
+                    <h3>Családi Lakosztály</h3>
+                    <p>Tökéletes családok számára, két hálószobával, nappalival és egy kis konyhával.</p>
                     <div class="room-features">
-                        <i class="fa fa-bed" aria-hidden="true"></i> 2 Bedrooms
-                        <i class="fa fa-cutlery" aria-hidden="true"></i> Kitchenette
-                        <i class="fa fa-tv" aria-hidden="true"></i> Flat-screen TV
+                        <i class="fa fa-bed" aria-hidden="true"></i> 2 Hálószoba
+                        <i class="fa fa-cutlery" aria-hidden="true"></i> Kis konyha
+                        <i class="fa fa-tv" aria-hidden="true"></i> Síkképernyős TV
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modal Structure -->
+    <div id="roomModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modal-title"></h2>
+            <div class="modal-images">
+                <img src="https://place-hold.it/300x200" id="modal-img-1">
+                <img src="https://place-hold.it/300x200" id="modal-img-2">
+            </div>
+            <p id="modal-description"></p>
+            <button id="book-now" class="button">Foglalás</button>
+        </div>
+    </div>
 
     <footer class="footer">
             <div class="container footer__container">
