@@ -736,6 +736,15 @@ iframe {
     padding: 10px 0;
 }
 
+.media__container {
+    align-items: center;
+    display: flex;
+}
+
+.media__container > a > i {
+    color: #263b7d;
+}
+
 
 
 @media screen and (max-width: 960px) {
