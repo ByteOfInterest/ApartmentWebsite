@@ -178,6 +178,11 @@ body {
     position: fixed;
 }
 
+.language_choice > a:hover {
+    background-color: #6A0708;
+    opacity: 0.8;
+}
+
 .language_line {
     padding: 0;
     margin: 0;
