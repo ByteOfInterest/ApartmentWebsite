@@ -569,9 +569,25 @@ body {
         opacity: 0;
     }
 
+    .header__checkbox:checked ~ .line-container {
+        position: fixed;
+        display: flex;
+        right: 0;
+        padding: 10px 40px;
+        left: 0;
+        z-index: 4;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header__checkbox:checked ~ .square {
+        left: 0;
+    }
+
     /* Show the hamburger menu */
     .header__checkbox, .check-wrapper {
         display: block;
+        z-index: 4;
     }
 
     /* Hide the regular menu */
@@ -622,6 +638,10 @@ body {
         margin-top: 30px;
     }
 
+    .header__button-link {
+        margin-left: 0;
+    }
+
     .check-wrapper {
         position: absolute;
         z-index: 3;
@@ -634,10 +654,6 @@ body {
 
 /* Tablet and smaller laptop sizes (768px and up) */
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        padding: 10px 20px;
-    }
 
     .room-container {
         display: block;
