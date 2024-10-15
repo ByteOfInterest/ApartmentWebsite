@@ -1,3 +1,22 @@
+// JavaScript for menu toggle (hamurger icon)
+// Get the menu icon and navbar elements
+const menuIcon = document.getElementById('menu-icon');
+const navbar = document.getElementById('navbar');
+
+// Add click event to toggle the menu visibility and change the icon
+menuIcon.addEventListener('click', () => {
+    // Toggle the navbar display
+    navbar.classList.toggle('active');
+
+    // Change the icon from bars to X and vice versa
+    if (navbar.classList.contains('active')) {
+        menuIcon.innerHTML = '<i class="fa fa-times"></i>'; // Change to X
+    } else {
+        menuIcon.innerHTML = '<i class="fa fa-bars"></i>';  // Change to 3 bars
+    }
+});
+
+
 // Get modal element and close button
 const modal = document.getElementById("roomModal");
 const closeBtn = document.querySelector(".close");
