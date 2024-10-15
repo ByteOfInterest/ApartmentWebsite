@@ -565,6 +565,10 @@ body {
         padding: 10px 40px;
     }
 
+    .header__checkbox {
+        opacity: 0;
+    }
+
     /* Show the hamburger menu */
     .header__checkbox, .check-wrapper {
         display: block;
