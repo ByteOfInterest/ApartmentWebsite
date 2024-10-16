@@ -85,6 +85,8 @@ document.querySelectorAll(".room-container").forEach((room) => {
         const roomType = room.getAttribute("data-room");
         const roomInfo = roomData[roomType];
 
+        console.log("Room clicked:", roomType);  // Add this for debugging
+
         // Update modal content
         document.getElementById("modal-title").textContent = roomInfo.title;
         document.getElementById("modal-description").textContent = roomInfo.description;
@@ -95,6 +97,7 @@ document.querySelectorAll(".room-container").forEach((room) => {
         modal.style.display = "block";
     });
 });
+
 
 // Close modal when "x" is clicked
 closeBtn.onclick = function() {
