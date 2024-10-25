@@ -73,7 +73,7 @@ document.querySelectorAll(".room-container").forEach((room) => {
         document.getElementById("modal-img-2").src = roomInfo.img2;
 
         // Show the modal
-        modal.style.display = "block";
+        modal.style.display = "flex";
     });
 });
 
