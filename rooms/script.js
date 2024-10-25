@@ -16,10 +16,26 @@ menuIcon.addEventListener('click', () => {
     }
 });
 
-
 // Get modal element and close button
 const modal = document.getElementById("roomModal");
 const closeBtn = document.querySelector(".close");
+
+// Handle click event for room containers
+document.querySelectorAll(".room-container").forEach((room) => {
+    room.addEventListener("click", () => {
+        const roomType = room.getAttribute("data-room");
+        const roomInfo = roomData[roomType];
+
+        // Update modal content
+        document.getElementById("modal-title").textContent = roomInfo.title;
+        document.getElementById("modal-description").textContent = roomInfo.description;
+        document.getElementById("modal-img-1").src = roomInfo.img1;
+        document.getElementById("modal-img-2").src = roomInfo.img2;
+
+        // Show the modal
+        modal.style.display = "block";
+    });
+});
 
 // Room data for modal content
 const roomData = {
@@ -78,23 +94,6 @@ const roomData = {
         img2: "https://place-hold.it/300x200"
     }
 };
-
-// Handle click event for room containers
-document.querySelectorAll(".room-container").forEach((room) => {
-    room.addEventListener("click", () => {
-        const roomType = room.getAttribute("data-room");
-        const roomInfo = roomData[roomType];
-
-        // Update modal content
-        document.getElementById("modal-title").textContent = roomInfo.title;
-        document.getElementById("modal-description").textContent = roomInfo.description;
-        document.getElementById("modal-img-1").src = roomInfo.img1;
-        document.getElementById("modal-img-2").src = roomInfo.img2;
-
-        // Show the modal
-        modal.style.display = "block";
-    });
-});
 
 // Close modal when "x" is clicked
 closeBtn.onclick = function() {
