@@ -89,11 +89,6 @@ window.onclick = function(event) {
     }
 }
 
-// Redirect to booking page when "Foglalás" button is clicked
-document.getElementById("book-now").addEventListener("click", function() {
-    window.location.href = "../booking/index.html";
-});
-
 // JavaScript for menu toggle (hamurger icon)
 // Get the menu icon and navbar elements
 const menuIcon = document.getElementById('menu-icon');

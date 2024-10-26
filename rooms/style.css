@@ -354,6 +354,12 @@ body {
     max-width: 45%;
     border-radius: 8px;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.modal-images img:hover {
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 #modal-description {
@@ -378,6 +384,11 @@ body {
 
 #book-now:hover {
     background-color: #9a0a0b;
+}
+
+.pop-up_button {
+    text-decoration: none;
+    color: #ffffff;
 }
 
 /* Footer */
