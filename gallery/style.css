@@ -218,18 +218,20 @@ body {
 
 /* Gallery section */
 .gallery-section {
+    margin-top: 50px;
     padding: 20px;
 }
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
     gap: 15px;
 }
 
 .gallery-img {
     width: 100%;
-    height: auto;
+    height: 200px;
+    object-fit: cover;
     border-radius: 8px;
     cursor: pointer;
     transition: transform 0.2s ease;
