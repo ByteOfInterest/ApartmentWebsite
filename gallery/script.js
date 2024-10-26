@@ -1,21 +1,25 @@
-// Lightbox 
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const lightboxClose = document.querySelector(".lightbox-close");
+// Modal for full size image
+// Get elements
+const galleryImages = document.querySelectorAll('.gallery-img');
+const modal = document.getElementById('imageModal');
+const fullSizeImage = document.getElementById('fullSizeImage');
+const modalClose = document.getElementById('modalClose');
 
-document.querySelectorAll(".gallery-img").forEach((img) => {
-    img.addEventListener("click", () => {
-        lightboxImg.src = img.src;
-        lightbox.style.display = "flex"; 
+// Open modal with the clicked image
+galleryImages.forEach(image => {
+    image.addEventListener('click', () => {
+        fullSizeImage.src = image.src;
+        modal.style.display = 'flex';
     });
 });
 
-lightboxClose.addEventListener("click", () => {
-    lightbox.style.display = "none";
+// Close modal when the close button or outside the image is clicked
+modalClose.addEventListener('click', () => {
+    modal.style.display = 'none';
 });
 
-lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
-        lightbox.style.display = "none";
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
     }
 });

@@ -241,37 +241,33 @@ body {
     transform: scale(1.05);
 }
 
-/* Lightbox container */
-.lightbox {
+/* Full-screen modal styling */
+.modal {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 10;
     align-items: center;
-    z-index: 1000;
+    justify-content: center;
 }
 
-.lightbox img {
+.modal img {
     max-width: 90%;
     max-height: 90%;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
-.lightbox-close {
+.modal .close {
     position: absolute;
     top: 20px;
-    right: 30px;
-    font-size: 40px;
+    right: 20px;
+    font-size: 24px;
     color: white;
     cursor: pointer;
-}
-
-.lightbox-close:hover {
-    color: #ccc;
 }
 
 /* Footer */
