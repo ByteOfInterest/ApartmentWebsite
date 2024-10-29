@@ -1,28 +1,23 @@
 function addressAutocomplete(containerElement, callback, options) {
+
   const MIN_ADDRESS_LENGTH = 3;
   const DEBOUNCE_DELAY = 300;
-  let currentTimeout;
-  let currentPromiseReject;
-  let currentItems;
-  let focusedItemIndex = -1;
 
-  // Create container for input element
+  // create container for input element
   const inputContainerElement = document.createElement("div");
   inputContainerElement.setAttribute("class", "input-container");
   containerElement.appendChild(inputContainerElement);
 
-  // Create input element
+  // create input element
   const inputElement = document.createElement("input");
   inputElement.setAttribute("type", "text");
   inputElement.setAttribute("placeholder", options.placeholder);
   inputContainerElement.appendChild(inputElement);
 
-  // Create clear button
+  // add input field clear button
   const clearButton = document.createElement("div");
   clearButton.classList.add("clear-button");
   addIcon(clearButton);
-  inputContainerElement.appendChild(clearButton);
-
   clearButton.addEventListener("click", (e) => {
     e.stopPropagation();
     inputElement.value = '';
@@ -30,15 +25,24 @@ function addressAutocomplete(containerElement, callback, options) {
     clearButton.classList.remove("visible");
     closeDropDownList();
   });
+  inputContainerElement.appendChild(clearButton);
 
+  /* We will call the API with a timeout to prevent unneccessary API activity.*/
+  let currentTimeout;
+
+  /* Save the current request promise reject function. To be able to cancel the promise when a new request comes */
+  let currentPromiseReject;
+
+  /* Focused item in the autocomplete list. This variable is used to navigate with buttons */
+  let focusedItemIndex;
+
+  /* Process a user input: */
   inputElement.addEventListener("input", function(e) {
     const currentValue = this.value;
 
-    if (!currentValue) {
-      clearButton.classList.remove("visible");
-    } else {
-      clearButton.classList.add("visible");
-    }
+    /* Close any already open dropdown list */
+    closeDropDownList();
+
 
     // Cancel previous timeout
     if (currentTimeout) {
@@ -52,23 +56,35 @@ function addressAutocomplete(containerElement, callback, options) {
       });
     }
 
-    // Skip short address strings
+    if (!currentValue) {
+      clearButton.classList.remove("visible");
+    }
+
+    // Show clearButton when there is a text
+    clearButton.classList.add("visible");
+
+    // Skip empty or short address strings
     if (!currentValue || currentValue.length < MIN_ADDRESS_LENGTH) {
-      closeDropDownList();
       return false;
     }
 
-    // Call the Address Autocomplete API with a delay
+    /* Call the Address Autocomplete API with a delay */
     currentTimeout = setTimeout(() => {
       currentTimeout = null;
+
+      /* Create a new promise and send geocoding request */
       const promise = new Promise((resolve, reject) => {
         currentPromiseReject = reject;
-        const apiKey = "17f4d8284a0842f78467c4e8075f65d7";
-        const url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(currentValue)}&format=json&limit=5&apiKey=${apiKey}`;
+
+        const apiKey = config.apiKey;
+
+        var url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(currentValue)}&format=json&limit=5&apiKey=${apiKey}`;
 
         fetch(url)
           .then(response => {
             currentPromiseReject = null;
+
+            // check if the call was successful
             if (response.ok) {
               response.json().then(data => resolve(data));
             } else {
@@ -78,25 +94,31 @@ function addressAutocomplete(containerElement, callback, options) {
       });
 
       promise.then((data) => {
+        // here we get address suggestions
         currentItems = data.results;
-        closeDropDownList();
 
-        // Create dropdown list
+        /*create a DIV element that will contain the items (values):*/
         const autocompleteItemsElement = document.createElement("div");
         autocompleteItemsElement.setAttribute("class", "autocomplete-items");
         inputContainerElement.appendChild(autocompleteItemsElement);
 
+        /* For each item in the results */
         data.results.forEach((result, index) => {
+          /* Create a DIV element for each element: */
           const itemElement = document.createElement("div");
+          /* Set formatted address as item value */
           itemElement.innerHTML = result.formatted;
           autocompleteItemsElement.appendChild(itemElement);
 
+          /* Set the value for the autocomplete text field and notify: */
           itemElement.addEventListener("click", function(e) {
             inputElement.value = currentItems[index].formatted;
             callback(currentItems[index]);
+            /* Close the list of autocompleted values: */
             closeDropDownList();
           });
         });
+
       }, (err) => {
         if (!err.canceled) {
           console.log(err);
@@ -105,40 +127,52 @@ function addressAutocomplete(containerElement, callback, options) {
     }, DEBOUNCE_DELAY);
   });
 
-  // Handle keyboard navigation
+  /* Add support for keyboard navigation */
   inputElement.addEventListener("keydown", function(e) {
-    const autocompleteItemsElement = containerElement.querySelector(".autocomplete-items");
+    var autocompleteItemsElement = containerElement.querySelector(".autocomplete-items");
     if (autocompleteItemsElement) {
-      const itemElements = autocompleteItemsElement.getElementsByTagName("div");
-      if (e.keyCode == 40) { // Down arrow
+      var itemElements = autocompleteItemsElement.getElementsByTagName("div");
+      if (e.keyCode == 40) {
         e.preventDefault();
+        /*If the arrow DOWN key is pressed, increase the focusedItemIndex variable:*/
         focusedItemIndex = focusedItemIndex !== itemElements.length - 1 ? focusedItemIndex + 1 : 0;
+        /*and and make the current item more visible:*/
         setActive(itemElements, focusedItemIndex);
-      } else if (e.keyCode == 38) { // Up arrow
+      } else if (e.keyCode == 38) {
         e.preventDefault();
-        focusedItemIndex = focusedItemIndex !== 0 ? focusedItemIndex - 1 : itemElements.length - 1;
+
+        /*If the arrow UP key is pressed, decrease the focusedItemIndex variable:*/
+        focusedItemIndex = focusedItemIndex !== 0 ? focusedItemIndex - 1 : focusedItemIndex = (itemElements.length - 1);
+        /*and and make the current item more visible:*/
         setActive(itemElements, focusedItemIndex);
-      } else if (e.keyCode == 13) { // Enter key
+      } else if (e.keyCode == 13) {
+        /* If the ENTER key is pressed and value as selected, close the list*/
         e.preventDefault();
         if (focusedItemIndex > -1) {
           closeDropDownList();
         }
       }
-    } else if (e.keyCode == 40) { // Reopen dropdown on down arrow
-      const event = document.createEvent('Event');
-      event.initEvent('input', true, true);
-      inputElement.dispatchEvent(event);
+    } else {
+      if (e.keyCode == 40) {
+        /* Open dropdown list again */
+        var event = document.createEvent('Event');
+        event.initEvent('input', true, true);
+        inputElement.dispatchEvent(event);
+      }
     }
   });
 
   function setActive(items, index) {
     if (!items || !items.length) return false;
 
-    for (let i = 0; i < items.length; i++) {
+    for (var i = 0; i < items.length; i++) {
       items[i].classList.remove("autocomplete-active");
     }
 
+    /* Add class "autocomplete-active" to the active element*/
     items[index].classList.add("autocomplete-active");
+
+    // Change input value and notify
     inputElement.value = currentItems[index].formatted;
     callback(currentItems[index]);
   }
@@ -148,19 +182,9 @@ function addressAutocomplete(containerElement, callback, options) {
     if (autocompleteItemsElement) {
       inputContainerElement.removeChild(autocompleteItemsElement);
     }
+
     focusedItemIndex = -1;
   }
-
-  // Close dropdown when clicking outside
-  document.addEventListener("click", function(e) {
-    if (e.target !== inputElement) {
-      closeDropDownList();
-    } else if (!containerElement.querySelector(".autocomplete-items")) {
-      const event = document.createEvent('Event');
-      event.initEvent('input', true, true);
-      inputElement.dispatchEvent(event);
-    }
-  });
 
   function addIcon(buttonElement) {
     const svgElement = document.createElementNS("http://www.w3.org/2000/svg", 'svg');
@@ -173,14 +197,28 @@ function addressAutocomplete(containerElement, callback, options) {
     svgElement.appendChild(iconElement);
     buttonElement.appendChild(svgElement);
   }
+  
+    /* Close the autocomplete dropdown when the document is clicked. 
+      Skip, when a user clicks on the input field */
+  document.addEventListener("click", function(e) {
+    if (e.target !== inputElement) {
+      closeDropDownList();
+    } else if (!containerElement.querySelector(".autocomplete-items")) {
+      // open dropdown list again
+      var event = document.createEvent('Event');
+      event.initEvent('input', true, true);
+      inputElement.dispatchEvent(event);
+    }
+  });
 }
 
-// Initialize the autocomplete
 addressAutocomplete(document.getElementById("autocomplete-container"), (data) => {
-  console.log("Selected option: ", data);
+  console.log("Selected option: ");
+  console.log(data);
 }, {
   placeholder: "Enter an address here"
 });
+
 
 
 // Function to initialize counter with a limit
