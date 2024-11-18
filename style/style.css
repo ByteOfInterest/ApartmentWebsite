@@ -118,10 +118,6 @@ body {
     text-decoration: underline;
 }
 
-.header__list .header__icon {
-    display: none;
-}
-
 .header__link:last-of-type {
     margin-right: 0;
 }
@@ -187,6 +183,26 @@ body {
     padding: 0;
     margin: 0;
     color: black;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.header__icon {
+    display: none;
+    width: 30px;
+    cursor: pointer;
+    z-index: 3;
+    position: relative;
+}
+
+.bar {
+    width: 30px;
+    height: 4px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: 0.4s;
 }
 
 /* Title of the webpage */
@@ -750,53 +766,42 @@ iframe {
     color: #263b7d;
 }
 
-
-
+/* Media Queries */
 @media screen and (max-width: 960px) {
-    .header__list a {
+    .header__list {
         display: none;
-    }
-    .header__list a.header__icon {
-      float: right;
-      display: block;
-    }
-}
-
-@media screen and (max-width: 960px) {
-    .header__list.responsive {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
         position: fixed;
-        display: block;
-        background: #fff;
         top: 0;
+        left: 0;
         right: 0;
         bottom: 0;
-        left: 0;
+        background-color: #fff;
         z-index: 2;
-        text-align: center;
-    }
-    .header__list.responsive .header__icon {
-      position: absolute;
-      right: 0;
-      top: 0;
-      margin-right: 112px;
-      margin-top: -14px;
-    }
-    .header__list.responsive a {
-      float: none;
-      display: block;
-      text-align: left;
-      font-size: 30px;
-      padding-top: 30px;
+        transition: opacity 0.4s ease;
     }
 
-    .header__list.responsive .header__button-link {
-        margin-top: 30px;
-        margin-left: 0;
-        font-size: 30px;
+    .header__icon {
+        display: block;
     }
 
-    .header__nav a:first-of-type {
-        margin-top: 200px;
+    .menu-toggle:checked ~ .header__list {
+        display: flex;
+    }
+
+    .menu-toggle:checked + .header__icon .bar1 {
+        transform: rotate(-45deg) translate(-6px, 6px);
+    }
+
+    .menu-toggle:checked + .header__icon .bar2 {
+        opacity: 0;
+    }
+
+    .menu-toggle:checked + .header__icon .bar3 {
+        transform: rotate(45deg) translate(-6px, -6px);
     }
 
     .container {

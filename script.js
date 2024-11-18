@@ -12,11 +12,3 @@ $('.about__items > div').on('click', function(){
     $(this).next('p').slideToggle(300)
 })
 
-function myFunction() {
-    var x = document.getElementById("my-header__list");
-    if (x.className === "header__list") {
-      x.className += " responsive";
-    } else {
-      x.className = "header__list";
-    }
-}
