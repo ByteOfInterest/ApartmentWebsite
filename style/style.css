@@ -768,6 +768,18 @@ iframe {
 
 /* Media Queries */
 @media screen and (max-width: 960px) {
+    .leading__header {
+        font-size: 34px;
+    }
+
+    .general__p {
+        font-size: 16px;
+    }
+
+    .logo_image-header {
+        left: 40px;
+    }
+
     .header__list {
         display: none;
         flex-direction: column;
@@ -805,11 +817,20 @@ iframe {
     }
 
     .container {
-        padding: 10px 114px 7px 107px;
+        min-width: auto;
+        padding: 10px 114px 7px 45px;
+    }
+
+    .square {
+        width: 220px;
+        height: 50px;
+        top: 61px;
+        left: 270px;
+        font-size: 28px;
     }
 
     .container__text-first {
-        margin-left: 90px;
+        margin-left: 40px;
     }
 
     .imagine-first {
@@ -821,7 +842,17 @@ iframe {
     }
 
     .second-section__container {
-        padding: 37px 79px 46px 160px;
+        padding: 37px 79px 20px 45px;
+        min-width: auto;
+    }
+
+    .main-container {
+        height: auto;
+
+    }
+
+    .main-container > .container__text {
+        padding-left: 20px;
     }
 
     .button-rooms {
