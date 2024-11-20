@@ -886,7 +886,24 @@ iframe {
     .rooms-section__container {
         padding-bottom: 22px;
     }
-}
+
+    .about__item-container {
+        margin-right: 0;
+    }
+
+    .slick-next:before, .slick-prev:before {
+        font-size: 40px;
+        color: #192252;
+    }
+
+    .slick-dotted.slick-slider {
+        width: auto;
+    }
+
+    .map_container {
+        padding: 0;
+    }
+} 
 
 @media screen and (max-width:800px) {
     .container-flex {
