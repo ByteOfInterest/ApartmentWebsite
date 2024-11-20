@@ -906,112 +906,80 @@ iframe {
 } 
 
 @media screen and (max-width:800px) {
-    .container-flex {
-        display: block;
-        text-align: center;
+    .main-section__img {
+        width: 250px;
+    }
+
+    .logo_image-header {
+        height: 80px;
+        width: 140px;
+    }
+
+    .custom-hr {
+        height: 50px;
+    }
+
+    .square {
+        top: 36px;
+        left: 155px;
+    }
+
+    .main-section__img2 {
+        width: 325px;
+    }
+
+    .second-section__container {
+        padding: 10px 30px 15px 30px;
     }
 
     .leading__header {
-        margin: 0 auto;
-        padding-bottom: 24px;
+        font-size: 29px;
+        margin-right: 0;
     }
 
     .general__p {
-        margin: 0 auto;
-        padding-bottom: 32px;
+        font-size: 15px;
     }
 
-    .container {
-        display: block;
-    }
-
-    .first-section__img {
-        margin: 0 auto;
-        display: block;
-        margin-top: 90px;
-    }
-
-    .section__h {
-        text-align: center;
-        padding-top: 34px;
-        padding-bottom: 50px;
-    }
-
-    .section__p:last-of-type {
-        margin-bottom: 0px;
-    }
-
-    .container__btn-first-section {
-        display: flex;
-        justify-content: center;
-    }
-
-    .button__first-section {
-        padding: 20px 37px;
-        font-size: 22px;
-    }
-
-    .part-container__section {
-        display: block;
-    }
-
-    .container__img {
-        text-align: center;
-    }
-
-    .imagine-first {
-        margin-left: 0;
-    }
-
-    .imagine-second {
+    .about__position {
+        padding: 13px 0 26px 22px;
+        font-size: 19px;
         margin-right: 0;
     }
 
-    .container__variants-rooms {
-        display: block;
-        text-align: center;
+    .about__icon {
+        padding: 5px 25px 0 0;
     }
 
-    .div-single__room {
-        margin-left: 0;
-        margin-right: 0;
+    .footer__leftside {
+        margin-right: 10px;
     }
 
-    .p__rooms {
-        margin: 0 auto;
-        padding-bottom: 20px;
+    .footer__catchword {
+        font-size: 14px;
     }
 
-    .container__text-first {
-        margin-left: 0;
+    .rightside__p {
+        font-size: 14px;
     }
 
-    .div__cootage {
-        margin: 0 auto;
+    .logo_image-footer {
+        height: 90px;
+        width: 140px;
     }
 
-    .up-header__text {
-        text-align: center;
+    .social__media-icon {
+        width: 25px;
+        height: 25px;
     }
 
-    .choose-button__container {
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 45px;
+    .social__media-booking {
+        height: 25px;
+        width: 25px;
     }
 
-    .about__items {
-        max-width: inherit;
-    }
-
-    .appears_text {
-        max-width: inherit;
-    }
-
-    .footer__container {
-        display: flex;
+    .footer__copyright > p {
+        font-size: 12px;
     }
 }
 
