@@ -1103,5 +1103,166 @@ iframe {
     .rightside__p {
         font-size: 10px;
     }
+}
 
+@media screen and (max-width: 540px) {
+    .container {
+        margin: 0 auto;
+        padding: 20px;
+        display: block;
+        text-align: center;
+    }
+
+    .container-flex {
+        display: block;
+        text-align: center;
+    }
+
+    .leading__header {
+        font-size: 20px;
+    }
+
+    .general__p {
+        font-size: 12px;
+    }
+
+    .header__link {
+        font-size: 14px;
+    }
+
+    .header__logo {
+        font-size: 18px;
+    }
+
+    .header__nav {
+        padding-bottom: 40px;
+    }
+
+    .header__icon {
+        width: 20px;
+    }
+
+    .bar {
+        height: 2px;
+    }
+
+    .square {
+        width: 150px;
+        height: 50px;
+        top: 36px;
+        left: 155px;
+        font-size: 20px;
+    }
+
+    .main-section-container {
+        margin-top: 0;
+    }
+
+    .main-section__img {
+        width: 180px;
+    }
+
+    .main-section__img2 {
+        width: 250px;
+    }
+
+    .container__text-first {
+        margin-left: 0;
+    }
+
+    .second-section__container {
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .about__position {
+        padding: 13px 0 26px 22px;
+        font-size: 14px;
+    }
+
+    .about__icon {
+        padding: 5px 25px 0 0;
+    }
+
+    .main-container > .container__text {
+        padding-left: 0;
+    }
+
+    .button-rooms {
+        margin-bottom: 0;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .choose-button__container {
+        margin-bottom: 20px;
+    }
+
+    .about__items:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .reviews__p {
+        font-size: 12px;
+        width: 400px;
+    }
+
+    .slick-next {
+        right: 0;
+    }
+
+    .footer__catchword {
+        font-size: 10px;
+    }
+
+    .rightside__p {
+        font-size: 10px;
+    }
+
+    .logo_image-footer {
+        height: 70px;
+        width: 100px;
+    }
+
+    .social__media-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .social__media-booking {
+        height: 20px;
+        width: 20px;
+    }
+
+    .footer__catchword:last-of-type {
+        margin-bottom: 10px;
+    }
+
+    .footer__bottom hr {
+        width: 50%;
+    }
+
+    .footer__bottom {
+        padding: 5px 0;
+    }
+
+    .footer__h {
+        font-size: 24px;
+    }
+
+    .footer__catchword {
+        line-height: 10px;
+    }
+
+    .rightside__p {
+        line-height: 10px;
+    }
+
+    .media__container {
+        display: block;
+        text-align: center;
+        margin: 0 auto;
+    }
 }
