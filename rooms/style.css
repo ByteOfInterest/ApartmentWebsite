@@ -69,6 +69,7 @@ body {
 }
 
 /* Header */
+
 .header-container {
     display: flex;
     justify-content: space-around;
@@ -77,10 +78,12 @@ body {
 
 .header__logo {
     margin-top: 9px;
+    
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
     line-height: 39px;
+
     color: #192252;
 }
 
@@ -100,8 +103,12 @@ body {
     margin-top: 19px;
     text-decoration: none;
     cursor: pointer;
+    font-style: normal;
+
     font-weight: 500;
     font-size: 20px;
+    line-height: 19px;
+
     color: #192252;
     margin-right: 48px;
 }
@@ -109,6 +116,10 @@ body {
 .header_link_main {
     font-size: 23px;
     text-decoration: underline;
+}
+
+.header__link:last-of-type {
+    margin-right: 0;
 }
 
 .header__link:hover {
@@ -123,32 +134,11 @@ body {
     margin-left: 30px;
 }
 
-/* Hamburger menu icon styling */
-.header__menu {
-    display: none;
+.fa {
+    color: #0B265A;
+    font-size: 30px;
 }
 
-.header__checkbox {
-    display: none;
-}
-
-.check-wrapper {
-    display: none;
-    cursor: pointer;
-}
-
-.check {
-    width: 30px;
-    height: 2px;
-    background: black;
-    transition: 250ms linear;
-}
-
-.check:not(:last-of-type) {
-    margin-bottom: 6px;
-}
-
-/* Language dropdown */
 .language_button {
     background: none;
     border: none;
@@ -193,6 +183,26 @@ body {
     padding: 0;
     margin: 0;
     color: black;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.header__icon {
+    display: none;
+    width: 30px;
+    cursor: pointer;
+    z-index: 4;
+    position: relative;
+}
+
+.bar {
+    width: 30px;
+    height: 4px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: 0.4s;
 }
 
 /* Title of the webpage */
@@ -542,155 +552,72 @@ body {
     color: #263b7d;
 }
 
-/* Base styling for large screens (1400px and up) remains unchanged */
-
-/* 1240px screen size adjustments */
-@media (max-width: 1240px) {
-    .container {
-        max-width: 1180px;
+/* Media Queries */
+@media screen and (max-width: 1180px) {
+    .header-container {
+        justify-content: space-between;
+        padding: 40px 40px 0px 40px;
     }
 
-    .room-container {
-        margin: 10px 0;
-    }
-
-    .room-image img {
-        width: 100%;
-        height: auto;
+    .logo_image-header {
+        left: 15px;
     }
 }
 
-/* 1050px screen size adjustments */
-@media (max-width: 1050px) {
-    .container {
-        max-width: 1000px;
-        padding: 10px 40px;
-    }
-
-    .header__checkbox {
-        opacity: 0;
-    }
-
-    .header__checkbox:checked ~ .line-container {
-        position: fixed;
-        display: flex;
-        right: 0;
-        padding: 10px 40px;
-        left: 0;
-        z-index: 4;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .header__checkbox:checked ~ .square {
-        left: 0;
-    }
-
-    /* Show the hamburger menu */
-    .header__checkbox, .check-wrapper {
-        display: block;
-        z-index: 4;
-    }
-
-    /* Hide the regular menu */
-    .menu-all {
+@media screen and (max-width: 960px) {
+    .header__list {
         display: none;
-    }
-
-    /* Toggle the icon to X when menu is opened */
-    .header__checkbox:checked ~ .check-wrapper .check:first-of-type {
-        transform: rotate(45deg) translate(3px, 5px);
-    }
-
-    .header__checkbox:checked ~ .check-wrapper .check:last-of-type {
-        transform: rotate(-45deg) translate(7px, -7px);
-    }
-
-    .header__checkbox:checked ~ .check-wrapper .check:nth-child(2) {
-        opacity: 0;
-    }
-
-    /* Display fullscreen menu when checkbox is checked */
-    .header__checkbox:checked ~ .menu-all {
-        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
         position: fixed;
         top: 0;
+        left: 0;
         right: 0;
         bottom: 0;
-        left: 0;
-        background-color: #F3C6BD;
-        z-index: 1;
+        background-color: #fff;
+        z-index: 3;
+        transition: opacity 0.4s ease;
+    }
+
+    .header__icon {
+        display: block;
+    }
+
+    .menu-toggle:checked ~ .header__list {
+        display: flex;
+    }
+
+    .header__nav {
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
     }
 
-    /* Align the items vertically in the full-screen menu */
-    .header__ul {
-        flex-direction: column;
-        margin: 0;
+    .menu-toggle:checked + .header__icon .bar1 {
+        transform: rotate(-45deg) translate(-6px, 6px);
     }
 
-    .header__li {
-        margin: 20px 0;
+    .menu-toggle:checked + .header__icon .bar2 {
+        opacity: 0;
     }
 
-    .menu-all > div {
-        margin-top: 30px;
+    .menu-toggle:checked + .header__icon .bar3 {
+        transform: rotate(45deg) translate(-6px, -6px);
+    }
+
+    .header__link {
+        margin-right: 0;
+    }
+
+    .header__link:not(:last-of-type) {
+        margin-bottom: 20px;
+    }
+
+    .language_dropdown {
+        margin-bottom: 20px;
     }
 
     .header__button-link {
         margin-left: 0;
-    }
-
-    .check-wrapper {
-        position: absolute;
-        z-index: 3;
-    }
-
-    .room-container {
-        margin: 15px 0;
-    }
-}
-
-/* Tablet and smaller laptop sizes (768px and up) */
-@media (max-width: 768px) {
-
-    .room-container {
-        display: block;
-        width: 100%;
-        margin: 20px 0;
-    }
-
-    .room-info {
-        padding: 15px;
-    }
-
-    .room-image img {
-        width: 100%;
-        height: auto;
-    }
-}
-
-/* Mobile sizes (max 600px) */
-@media (max-width: 600px) {
-    .container {
-        max-width: 95%;
-        padding: 0;
-    }
-
-    .room-container {
-        display: block;
-        margin: 25px 0;
-    }
-
-    .room-info {
-        padding: 10px;
-    }
-
-    .room-image img {
-        width: 100%;
-        height: auto;
     }
 }

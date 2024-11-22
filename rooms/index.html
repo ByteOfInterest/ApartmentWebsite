@@ -21,17 +21,25 @@
     <header class="header">
         <div class="container header-container">
             <div class="header__logo">
-                <a href="../index.html"><img src="../img/Logo.png" class="logo_image-header" alt="logo"></a>
+                <a href="./index.html"><img src="../img/Logo.png" class="logo_image-header" alt="logo"></a>
             </div>
-            
-            <!-- Regular Menu -->
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="header__icon">
+                <div class="bar bar1"></div>
+                <div class="bar bar2"></div>
+                <div class="bar bar3"></div>
+            </label>
             <div class="header__list" id="my-header__list">
                 <nav class="header__nav">
-                    <a class="header__link" href="../index.html">About Us</a>
-                    <a class="header__link header_link_main" href="#">Rooms</a>
-                    <a class="header__link" href="../gallery/index.html">Gallery</a>
-                    <a class="header__link" href="../ContactUS/index.html">Contact Us</a>
-    
+
+                    <a class="header__link" href="../index.html">Rólunk</a>
+
+                    <a class="header__link header_link_main" href="#">Szobák</a>
+
+                    <a class="header__link" href="./gallery/index.html">Galéria</a>
+
+                    <a class="header__link" href="./ContactUS/index.html">Kapcsolat</a>
+
                     <div class="language_dropdown">
                         <button class="language_button"><i class="fa-solid fa-earth-americas fa-xl"></i></button>
                         <div class="language_choice">
@@ -42,48 +50,18 @@
                             <a href="#">Deutsch</a>
                         </div>
                     </div>
-    
-                    <a href="../booking/index.html" class="header__button-link button">
+
+                    <a href="./booking/index.html" class="header__button-link button">
                         Foglalás
                     </a>
+
                 </nav>
             </div>
-    
-            <!-- Hamburger Menu -->
-            <div class="header__menu">
-                <input type="checkbox" class="header__checkbox" id="menu-toggle">
-                <div class="check-wrapper">
-                    <div class="check"></div>
-                    <div class="check"></div>
-                    <div class="check"></div>
-                </div>
-                <div class="menu-all">
-                    <ul class="header__ul">
-                        <li class="header__li"><a href="../index.html">About Us</a></li>
-                        <li class="header__li"><a href="../rooms/index.html">Rooms</a></li>
-                        <li class="header__li"><a href="../gallery/index.html">Gallery</a></li>
-                        <li class="header__li"><a href="../ContactUS/index.html">Contact Us</a></li>
-                        <li class="header__li"><a href="../booking/index.html" class="header__button-link button">Foglalás</a></li>
-                    </ul>
-                    <div>
-                        <div class="language_dropdown">
-                            <button class="language_button"><i class="fa-solid fa-earth-americas fa-xl"></i></button>
-                            <div class="language_choice">
-                                <a href="#">English</a>
-                                <hr class="language_line">
-                                <a href="#">Español</a>
-                                <hr class="language_line">
-                                <a href="#">Deutsch</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-    </header>       
+    </header>    
     
     <div class="line-container">
-        <div class="square">Rooms</div>
+        <div class="square">Szobák</div>
         <hr class="custom-hr">
     </div>
 
@@ -276,10 +254,10 @@
                 </div>
                 <div class="footer__rightside">
                     <div class="rightside__item-1">
-                        <h4 class="item__header">Parking is free</h4>
-                        <a href="#" class="rightside__p">Credit Cards: EC/MC, Visa</a> <br>
-                        <a href="#" class="rightside__p"> Prices are indicated in HUF, include VAT and unlimited usage of the hotel amenities.</a> <br>
-                        <a href="#" class="rightside__p">Local tax rate is 580 HUF/person (over 18 years of age)/night, which is not included in the room rate and is payable on site.</a> <br>
+                        <h4 class="item__header">A parkolás ingyenes</h4>
+                        <a href="#" class="rightside__p">Hitelkártyák: EC/MC, Visa</a> <br>
+                        <a href="#" class="rightside__p"> Az árak forintban értendők, tartalmazzák az áfát és a szállodai szolgáltatások korlátlan használatát.</a> <br>
+                        <a href="#" class="rightside__p">Idegenforgalmi adó mértéke 580 Ft/fő (18 éves kor felett)/éj, melyet a szobaár nem tartalmaz és a helyszínen fizetendő.</a> <br>
                     </div>
                 </div>
             </div>
