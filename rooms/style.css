@@ -620,4 +620,46 @@ body {
     .header__button-link {
         margin-left: 0;
     }
+
+    .square {
+        left: 250px;
+        width: 250px;
+        height: 80px;
+    }
+
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+
+    .room-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .header__logo {
+        font-size: 24px;
+    }
+
+    .header__link {
+        font-size: 18px;
+    }
+
+    .header__button-link {
+        font-size: 18px;
+    }
+
+    .square {
+        left: 200px;
+        width: 200px;
+        height: 80px;
+    }
+
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+
+    .room-container {
+        grid-template-columns: 1fr;
+    }
 }
