@@ -216,7 +216,7 @@ addressAutocomplete(document.getElementById("autocomplete-container"), (data) =>
   console.log("Selected option: ");
   console.log(data);
 }, {
-  placeholder: "Enter an address here"
+  placeholder: "Adjon meg egy címet"
 });
 
 
@@ -282,90 +282,84 @@ function initializeCounter(increaseButtonId, decreaseButtonId, inputId, maxCount
   });
 }
 
-// Initialize counters with a maximum limit of 50
-initializeCounter('adults-increase', 'adults-decrease', 'adults-count', 50);
-initializeCounter('children-increase', 'children-decrease', 'children-count', 50);
+// Initialize counters with a maximum limit of 10
+initializeCounter('adults-increase', 'adults-decrease', 'adults-count', 10);
+initializeCounter('children-increase', 'children-decrease', 'children-count', 10);
 
-// Function to dynamically update age fields based on the number of children
-function initializeCounter(increaseButtonId, decreaseButtonId, inputId, maxCount) {
-  const increaseButton = document.getElementById(increaseButtonId);
-  const decreaseButton = document.getElementById(decreaseButtonId);
-  const peopleCountInput = document.getElementById(inputId);
-  const ageContainer = document.getElementById('children-age-container');
-  let peopleCount = parseInt(peopleCountInput.value, 10);
-
-  // Initialize the buttons based on the count
-  decreaseButton.disabled = peopleCount === 0;
-  increaseButton.disabled = peopleCount >= maxCount;
+// Function to handle adults count (no age inputs involved)
+function handleAdultsCounter() {
+  const increaseButton = document.getElementById('adults-increase');
+  const decreaseButton = document.getElementById('adults-decrease');
+  const adultsCountInput = document.getElementById('adults-count');
+  const maxCount = 10;
+  let adultsCount = parseInt(adultsCountInput.value, 10);
 
   increaseButton.addEventListener('click', () => {
-      if (peopleCount < maxCount) {
-          peopleCount++;
-          peopleCountInput.value = peopleCount;
-          decreaseButton.disabled = false;
-          if (peopleCount === maxCount) {
-              increaseButton.disabled = true;
-          }
-          updateAgeFields(peopleCount, ageContainer);
+      if (adultsCount < maxCount) {
+          adultsCount++;
+          adultsCountInput.value = adultsCount;
+          decreaseButton.disabled = adultsCount === 0;
+          increaseButton.disabled = adultsCount === maxCount;
       }
   });
 
   decreaseButton.addEventListener('click', () => {
-      if (peopleCount > 0) {
-          peopleCount--;
-          peopleCountInput.value = peopleCount;
-          increaseButton.disabled = false;
-          if (peopleCount === 0) {
-              decreaseButton.disabled = true;
-          }
-          updateAgeFields(peopleCount, ageContainer);
+      if (adultsCount > 0) {
+          adultsCount--;
+          adultsCountInput.value = adultsCount;
+          decreaseButton.disabled = adultsCount === 0;
+          increaseButton.disabled = adultsCount === maxCount;
       }
-  });
-
-  peopleCountInput.addEventListener('input', function(e) {
-      let inputValue = parseInt(peopleCountInput.value, 10);
-      if (isNaN(inputValue) || inputValue < 0) {
-          inputValue = 0;
-      }
-      if (inputValue > maxCount) {
-          inputValue = maxCount;
-      }
-      peopleCountInput.value = inputValue;
-      peopleCount = inputValue;
-      decreaseButton.disabled = peopleCount === 0;
-      increaseButton.disabled = peopleCount >= maxCount;
-      updateAgeFields(peopleCount, ageContainer);
   });
 }
 
-// Function to dynamically update age fields based on the number of children
-function updateAgeFields(count, container) {
-  container.innerHTML = '';  // Clear the container
-  if (count > 0) {
-      for (let i = 1; i <= count; i++) {
-          const ageInputDiv = document.createElement('div');
-          ageInputDiv.setAttribute('class', 'age-input-container');
-          const label = document.createElement('label');
-          label.setAttribute('for', `child-age-${i}`);
-          label.textContent = `Child ${i} age:`;
+// Function to handle children count and dynamically add/remove age fields
+function handleChildrenCounter() {
+  const increaseButton = document.getElementById('children-increase');
+  const decreaseButton = document.getElementById('children-decrease');
+  const childrenCountInput = document.getElementById('children-count');
+  const ageContainer = document.getElementById('children-age-container');
+  const maxCount = 10;
+  let childrenCount = parseInt(childrenCountInput.value, 10);
 
-          const ageInput = document.createElement('input');
-          ageInput.setAttribute('type', 'number');
-          ageInput.setAttribute('id', `child-age-${i}`);
-          ageInput.setAttribute('name', `child-age-${i}`);
-          ageInput.setAttribute('min', '0');
-          ageInput.setAttribute('max', '17');
-          ageInput.setAttribute('placeholder', 'Age');
-
-          ageInputDiv.appendChild(label);
-          ageInputDiv.appendChild(ageInput);
-          container.appendChild(ageInputDiv);
+  increaseButton.addEventListener('click', () => {
+      if (childrenCount < maxCount) {
+          childrenCount++;
+          childrenCountInput.value = childrenCount;
+          decreaseButton.disabled = childrenCount === 0;
+          increaseButton.disabled = childrenCount === maxCount;
+          updateAgeFields(childrenCount, ageContainer);
       }
+  });
+
+  decreaseButton.addEventListener('click', () => {
+      if (childrenCount > 0) {
+          childrenCount--;
+          childrenCountInput.value = childrenCount;
+          decreaseButton.disabled = childrenCount === 0;
+          increaseButton.disabled = childrenCount === maxCount;
+          updateAgeFields(childrenCount, ageContainer);
+      }
+  });
+}
+
+// Function to update children age fields
+function updateAgeFields(count, container) {
+  container.innerHTML = ''; // Clear existing fields
+  for (let i = 1; i <= count; i++) {
+      const ageField = document.createElement('div');
+      ageField.className = 'age-field';
+      ageField.innerHTML = `
+          <label for="child-age-${i}">Gyermek ${i} életkora:</label>
+          <input type="number" id="child-age-${i}" class="child-age-input" min="0" max="17" placeholder="Életkor">
+      `;
+      container.appendChild(ageField);
   }
 }
 
-// Initialize the children counter with a max limit of 50
-initializeCounter('children-increase', 'children-decrease', 'children-count', 50);
+// Initialize separate counters
+handleAdultsCounter();
+handleChildrenCounter();
 
 // Calendar code
 let date = new Date();
@@ -482,4 +476,30 @@ prenexIcons.forEach(icon => {
         // update the calendar display
         manipulate();
     });
+});
+
+// Generate a random 5-digit security code
+function generateSecurityCode() {
+  return Math.floor(10000 + Math.random() * 90000).toString();
+}
+
+// Ensure the DOM is fully loaded before accessing elements
+document.addEventListener('DOMContentLoaded', function() {
+  // Display the security code
+  const securityCode = generateSecurityCode();
+  document.getElementById('security-code-display').textContent = securityCode;
+
+  // Optional: Pre-fill the hidden input field for validation on the server
+  document.getElementById('security-code').setAttribute('data-actual-code', securityCode);
+});
+
+// Attach a submit event to validate the security code
+document.querySelector('form').addEventListener('submit', function (event) {
+  const userCode = document.getElementById('security-code').value;
+  const actualCode = document.getElementById('security-code-display').textContent;
+
+  if (userCode !== actualCode) {
+      event.preventDefault();
+      alert('Hibás biztonsági kód! Próbálja újra.');
+  }
 });
