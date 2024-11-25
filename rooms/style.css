@@ -641,6 +641,16 @@ body {
         font-size: 24px;
     }
 
+    .logo_image-header {
+        height: 70px;
+        width: 140px;
+    }
+
+    .logo_image-footer {
+        height: 70px;
+        width: 140px;
+    }
+
     .header__link {
         font-size: 18px;
     }
@@ -650,9 +660,10 @@ body {
     }
 
     .square {
-        left: 200px;
-        width: 200px;
-        height: 80px;
+        left: 90px;
+        width: 135px;
+        height: 60px;
+        font-size: 25px;
     }
 
     .main-container {
@@ -661,5 +672,58 @@ body {
 
     .room-container {
         grid-template-columns: 1fr;
+    }
+
+    .room-info h3 {
+        font-size: 22px;
+    }
+
+    .room-inro p {
+        font-size: 14px;
+    }
+
+    .room-features {
+        font-size: 15px;
+    }
+
+    .fa {
+        font-size: 27px;
+    }
+
+    .footer__container {
+        margin-top: 0;
+        display: block;
+    }
+
+    .footer__catchword {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .social__media-icon {
+        width: 25px;
+        height: 25px;
+    }
+
+    .social__media-booking {
+        height: 25px;
+        width: 25px;
+    }
+
+    .footer__catchword:last-of-type {
+        margin-bottom: 17px;
+    }
+
+    .item__header {
+        line-height: 13px;
+    }
+
+    .rightside__p {
+        font-size: 14px;
+        line-height: 15px;
+    }
+
+    .footer__copyright p {
+        font-size: 12px;
     }
 }
