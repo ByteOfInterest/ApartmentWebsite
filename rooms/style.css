@@ -257,6 +257,8 @@ body {
     padding: 20px;
     border-radius: 10px;
     transition: transform 0.3s ease;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .room-container:hover {
@@ -285,6 +287,9 @@ body {
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 10px;
     color: #6A0708;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal; 
 }
 
 .room-info p {
@@ -292,6 +297,9 @@ body {
     font-family: 'Inter', sans-serif;
     color: #333;
     margin-bottom: 15px;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal; 
 }
 
 .room-features {
@@ -299,6 +307,9 @@ body {
     gap: 20px;
     font-size: 18px;
     color: #6A0708;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal; 
 }
 
 .room-features i {
@@ -726,5 +737,91 @@ body {
 
     .footer__copyright p {
         font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .leading__header {
+        font-size: 18px;
+    }
+
+    .general__p {
+        font-size: 10px;
+    }
+
+    .header__link {
+        font-size: 12px;
+    }
+
+    .header__logo {
+        font-size: 16px;
+    }
+
+    .header__nav {
+        padding-bottom: 40px;
+    }
+
+    .header__icon {
+        width: 20px;
+    }
+
+    .bar {
+        height: 2px;
+    }
+
+    .square {
+        width: 130px;
+        height: 50px;
+        top: 36px;
+        left: 155px;
+        font-size: 18px;
+    }
+
+    .room-container {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .room-image {
+        text-align: center;
+    }
+
+    .room-image img {
+        width: auto;
+        max-width: 100%;
+    }
+
+    .room-info h3 {
+        font-size: 18px;
+    }
+
+    .room-info p {
+        font-size: 12px;
+    }
+
+    .room-features {
+        font-size: 10px;
+    }
+
+    .footer__container {
+        padding: 20px;
+    }
+
+    .footer__catchword {
+        font-size: 8px;
+    }
+
+    .rightside__p {
+        font-size: 8px;
+    }
+
+    .logo_image-footer {
+        height: 60px;
+        width: 90px;
+    }
+
+    .social__media-icon {
+        width: 20px;
+        height: 20px;
     }
 }
