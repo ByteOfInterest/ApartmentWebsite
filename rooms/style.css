@@ -354,6 +354,7 @@ body {
 
 .modal-images {
     display: flex;
+    flex-wrap: wrap;
     gap: 15px;
     justify-content: center;
     margin: 20px 0;
