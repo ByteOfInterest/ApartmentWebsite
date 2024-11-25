@@ -23,23 +23,27 @@
             <div class="header__logo">
                 <a href="../index.html"><img src="../img/Logo.png" class="logo_image-header" alt="logo"></a>
             </div>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="header__icon">
+                <div class="bar bar1"></div>
+                <div class="bar bar2"></div>
+                <div class="bar bar3"></div>
+            </label>
             <div class="header__list" id="my-header__list">
                 <nav class="header__nav">
 
-                    <a class="header__link" href="../index.html">About Us</a>
+                    <a class="header__link" href="../index.html">Rólunk</a>
 
-                    <a class="header__link" href="../rooms/index.html">Rooms</a>
+                    <a class="header__link" href="../rooms/index.html">Szobák</a>
 
-                    <a class="header__link" href="../gallery/index.html">Gallery</a>
+                    <a class="header__link" href="../gallery/index.html">Galéria</a>
 
-                    <a class="header__link" href="../rozsa_apartman_2/">Rózsa Házikó***</a>
-
-                    <a class="header__link" href="../ContactUS/index.html">Contact Us</a>
+                    <a class="header__link" href="../ContactUS/index.html">Kapcsolat</a>
 
                     <div class="language_dropdown">
                         <button class="language_button"><i class="fa-solid fa-earth-americas fa-xl"></i></button>
                         <div class="language_choice">
-                            <a href="./MagyarLanguage/index.html">Magyar</a>
+                            <a href="#">English</a>
                             <hr class="language_line">
                             <a href="#">Español</a>
                             <hr class="language_line">
@@ -47,88 +51,56 @@
                         </div>
                     </div>
 
-                    <a href="#" class="header__button-link button">
-                        Booking
+                    <a href="../booking/index.html" class="header__button-link button">
+                        Foglalás
                     </a>
 
                 </nav>
-                <a href="javascript:void(0);" class="header__icon" onclick="myFunction()">
-                    <i class="fa fa-bars"></i>
-                </a>
             </div>
         </div>
-    </header>
+    </header> 
     <main>
         <div class="h1-container">
-            <h1 class="h1-booking">Booking</h1>
+            <h1 class="h1-booking">Foglalás</h1>
         </div>
         <div class="booking-container">
-                <h1 class="h1-form">Request our booking</h1>
+                <h1 class="h1-form">Kérje foglalásunkat</h1>
                 <form action="" method="post">
 
-                    <label for="fname">First name:</label>
+                    <label for="fname">Keresztnév:</label>
                     <input type="text" id="fname" name="fname" required><br>
 
-                    <label for="sname">Last name:</label>
+                    <label for="sname">Vezetéknév:</label>
                     <input type="text" id="sname" name="sname" required><br>
 
                     <div class="autocomplete-container" id="autocomplete-container"></div><br>
 
-                    <label for="tel">Phone:</label>
+                    <label for="tel">Telefon:</label>
                     <input type="tel" id="tel" name="tel" required><br>
 
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required><br>
 
-                    <!-- <div class="calendar-container">
-                        <header class="calendar-header">
-                            <p class="calendar-current-date"></p>
-                            <div class="calendar-navigation">
-                                <span id="calendar-prev" 
-                                      class="material-symbols-rounded">
-                                    <-
-                                </span>
-                                <span id="calendar-next" 
-                                      class="material-symbols-rounded">
-                                    ->
-                                </span>
-                            </div>
-                        </header>
-                
-                        <div class="calendar-body">
-                            <ul class="calendar-weekdays">
-                                <li>Sun</li>
-                                <li>Mon</li>
-                                <li>Tue</li>
-                                <li>Wed</li>
-                                <li>Thu</li>
-                                <li>Fri</li>
-                                <li>Sat</li>
-                            </ul>
-                            <ul class="calendar-dates"></ul>
-                        </div>
-                    </div> -->
-
-                    <label for="#">Arrival time:</label>
+                    <label for="#">Érkezési idő:</label>
                     <input type="datetime-local" 
                         id="Test_DatetimeLocal">
                     <br>
 
-                    <label for="#">Leaving time:</label>
+                    <label for="#">Távozási idő:</label>
                     <input type="datetime-local" 
                         id="Test_DatetimeLocal">
                     <br>
 
-                    <p class="p-form">Number of guests</p>
+                    <p class="p-form">Vendégek száma</p>
 
-                    <label for="adults-count">Adults:</label>
+                    <label for="adults-count">Felnőttek:</label>
                     <div class="counter-container">
                         <button id="adults-decrease" class="count-button" disabled>-</button>
                         <input type="text" id="adults-count" value="0">
                         <button id="adults-increase" class="count-button">+</button>
                     </div>
 
-                    <label for="children-count">Children (under 18):</label>
+                    <label for="children-count">Gyermekek (18 éven aluliak):</label>
                     <div class="counter-container">
                         <button id="children-decrease" class="count-button" disabled>-</button>
                         <input type="text" id="children-count" value="0">
@@ -138,35 +110,35 @@
                     <!-- Container for the age input fields -->
                     <div id="children-age-container"></div>
 
-                    <p class="p-form">Room type</p>
+                    <p class="p-form">Szoba típusa</p>
 
-                    <label for="room1">Studio room (share kitchen)</label>
+                    <label for="room1">Stúdió szoba (közös konyha)</label>
                     <input type="radio" id="room1" name="room" value="room1"><br>
 
-                    <label for="room2">Studio room (with kitchen)</label>
+                    <label for="room2">Stúdió szoba (konyhával)</label>
                     <input type="radio" id="room2" name="room" value="room2"><br>
 
-                    <label for="room3">1,5 roomed apartment (ground floor)</label>
+                    <label for="room3">1,5 szobás lakás (földszint)</label>
                     <input type="radio" id="room3" name="room" value="room3"><br>
 
-                    <label for="room4">1,5 roomed apartment (on the 2 floor)</label>
+                    <label for="room4">1,5 szobás lakás (a 2. emeleten)</label>
                     <input type="radio" id="room4" name="room" value="room4"><br>
 
-                    <label for="room5">2 rooms apartment</label>
+                    <label for="room5">2 szobás lakás</label>
                     <input type="radio" id="room5" name="room" value="room5"><br>
 
-                    <label for="room6">Studio apartment</label>
+                    <label for="room6">Stúdió apartman</label>
                     <input type="radio" id="room6" name="room" value="room6"><br>
 
                     <input type="checkbox" name="extra_bed" id="extra_bed">
-                    <label for="room7">Extra bed</label> <br>
+                    <label for="room7">Pótágy</label> <br>
                     <div class="payment-form_container">
-                        <label for="payment">Method of payment:</label>
+                        <label for="payment">Fizetési mód:</label>
 
                         <select name="payment" id="payment-select">
-                            <option value="cash">Cash</option>
-                            <option value="credit_card">Credit card</option>
-                            <option value="bank_transfer">Bank transfer</option>
+                            <option value="cash">Készpénz</option>
+                            <option value="credit_card">Hitelkártya</option>
+                            <option value="bank_transfer">Banki átutalás</option>
                         </select>
                     </div>
                 </form>
@@ -180,19 +152,29 @@
                 <p class="footer__catchword">Alsóörs, Vörösmarty u. 19, 8226 Magyarország</p>
                 <p class="footer__catchword">Tel.: +36 20 509 1116</p>
                 <p class="footer__catchword">Email: rozsaapartman.alsoors@gmail.com</p>
-                <div>
-                    <a href="#" class="social__media-footer"><i class="fa-brands fa-facebook-f fa-2xl"></i></a>
-                    <a href="#" class="social__media-footer"><i class="fa-brands fa-airbnb fa-2xl"></i></a>
-                    <a href="#" class="social__media-footer"><img src="../img/booking_icon.png" class="social__media-booking" alt=""></a>
+                <div class="media__container">
+                    <a href="https://www.facebook.com/profile.php?id=61555310420426" class="social__media" target="_blank"><i class="fa-brands fa-facebook-f fa-2xl"></i></a>
+                    <a href="https://www.instagram.com/rozsaapartmanalsoors/" class="social__media" target="_blank">
+                        <img src="../img/instagram_logo.png" alt="Instagram Logo" class="social__media-icon">
+                    </a>
+
+                    <a href="#" class="social__media"><i class="fa-brands fa-airbnb fa-2xl"></i></a>
+                    <a href="#" class="social__media"><img src="../img/booking_logo_icon_169472.svg" class="social__media-booking" alt=""></a>
                 </div>
             </div>
             <div class="footer__rightside">
                 <div class="rightside__item-1">
-                    <h4 class="item__header">Parking is free</h4>
-                    <a href="#" class="rightside__p">Credit Cards: EC/MC, Visa</a> <br>
-                    <a href="#" class="rightside__p"> Prices are indicated in HUF, include VAT and unlimited usage of the hotel amenities.</a> <br>
-                    <a href="#" class="rightside__p">Local tax rate is 580 HUF/person (over 18 years of age)/night, which is not included in the room rate and is payable on site.</a> <br>
+                    <h4 class="item__header">A parkolás ingyenes</h4>
+                    <a href="#" class="rightside__p">Hitelkártyák: EC/MC, Visa</a> <br>
+                    <a href="#" class="rightside__p"> Az árak forintban értendők, tartalmazzák az áfát és a szállodai szolgáltatások korlátlan használatát.</a> <br>
+                    <a href="#" class="rightside__p">Idegenforgalmi adó mértéke 580 Ft/fő (18 éves kor felett)/éj, melyet a szobaár nem tartalmaz és a helyszínen fizetendő.</a> <br>
                 </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <hr>
+            <div class="footer__copyright">
+                <p>Copyright © 2024 rozsaapartmanalsoors.hu, All rights reserved</p>
             </div>
         </div>
     </footer>
